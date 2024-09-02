@@ -80,19 +80,19 @@ public class RegistroMascotasResidentController {
                 if (!perdido) {
                     // La mascota ha sido encontrada
                     registroMascotas.actualizarMascota();
-                    messageVerifyRegister.setText("La mascota ha sido actualizada a estado encontrado.");
+                    messageVerifyRegister.setText("La mascota ha sido encontrada. Registro guardado exitosamente");
                 } else {
                     // La mascota ya está registrada como perdida
                     messageVerifyRegister.setText("La mascota ya está registrada como perdida.");
                 }
             } else {
                 // La mascota no está registrada como perdida
-                String mensaje = registroMascotas.registrarMascota(); // Captura el mensaje
-                messageVerifyRegister.setText(mensaje); // Muestra el mensaje en la app
-
+                registroMascotas.registrarMascota();
                 if (perdido) {
-                    messageVerifyRegister.setText("La mascota ha sido reportada como perdida. " +
-                            "En caso de encontrarla por favor actualice el registro.");
+                    messageVerifyRegister.setText("La mascota ha sido reportada como perdida." +
+                            " En caso de encontrarla por favor actualice el registro");
+                } else {
+                    messageVerifyRegister.setText("Mascota registrada exitosamente.");
                 }
             }
 
@@ -104,24 +104,14 @@ public class RegistroMascotasResidentController {
     }
 
     public void volver(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
-            root = loader.load();
+        Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // Cierra la ventana actual
+        stageActual.close();
 
-            ServicesResidentController controller = loader.getController();
-            // Pasa los datos al controlador de ServicesVigilante
-            controller.setResidentDetails(nombreResidentMascota.getText(), Integer.parseInt(idResidentMascota.getText()));
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (NumberFormatException e) {
-            mostrarAlerta("Error", "ID de Resident no válido.");
-        }
-    }
+        // Carga la escena de anterior
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
 
     private void mostrarAlerta(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -131,3 +121,4 @@ public class RegistroMascotasResidentController {
         alert.showAndWait();
     }
 }
+//

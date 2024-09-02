@@ -36,7 +36,7 @@ public class RegistroMascotas extends Services {
         this.perdido = perdido;
     }
 
-    public String registrarMascota() {
+    public void registrarMascota() {
         DbConnection connection = new DbConnection();
         String query = "SELECT COUNT(*) FROM mascotas WHERE nombre = '" + this.nombreMascota +
                 "' AND tipo_animal = '" + this.raza + "' AND id_usuario = " + this.idCasaApto;
@@ -44,8 +44,9 @@ public class RegistroMascotas extends Services {
         try {
             int count = connection.getCount(query);
             if (count > 0) {
-                // Si la mascota ya está registrada, devuelve un mensaje
-                return "La mascota ya se encuentra registrada.";
+                // Si la mascota ya está registrada, muestra un mensaje
+                System.out.println("La mascota ya se encuentra registrada.");
+                return; // Salir del método, ya no es necesario continuar
             } else {
                 // Si la mascota no está registrada, realiza el registro
                 String insertQuery = "INSERT INTO mascotas(nombre, tipo_animal, id_usuario, perdido) VALUES ('"
@@ -56,14 +57,13 @@ public class RegistroMascotas extends Services {
 
                 int result = connection.updateDataBase(insertQuery);
                 if (result > 0) {
-                    return "Mascota registrada exitosamente.";
+                    System.out.println("Mascota registrada exitosamente.");
                 } else {
-                    return "Error al registrar la mascota.";
+                    System.out.println("Error al registrar la mascota.");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return "Error al registrar la mascota.";
         }
     }
 
@@ -95,34 +95,10 @@ public class RegistroMascotas extends Services {
             } else {
                 System.out.println("Error al actualizar el estado de la mascota.");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static List<RegistroMascotas> obtenerTodasLasMascotas() {
-        DbConnection connection = new DbConnection();
-        String query = "SELECT nombre, tipo_animal, id_usuario, perdido FROM mascotas";
-        List<RegistroMascotas> listaMascotas = new ArrayList<>();
-
-        try {
-            ResultSet resultSet = connection.getQueryTable(query);
-
-            while (resultSet.next()) {
-                String nombreMascota = resultSet.getString("nombre");
-                String raza = resultSet.getString("tipo_animal");
-                int idCasaApto = resultSet.getInt("id_usuario");
-                boolean perdido = resultSet.getBoolean("perdido");
-
-                RegistroMascotas mascota = new RegistroMascotas(nombreMascota, raza, idCasaApto, perdido);
-                listaMascotas.add(mascota);
-            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return listaMascotas;
     }
 
     public static void main(String[] args) {
@@ -130,4 +106,4 @@ public class RegistroMascotas extends Services {
         pet1.registrarMascota();
     }
 }
-
+//
