@@ -36,7 +36,7 @@ public class RegistroMascotas extends Services {
         this.perdido = perdido;
     }
 
-    public void registrarMascota() {
+    public String registrarMascota() {
         DbConnection connection = new DbConnection();
         String query = "SELECT COUNT(*) FROM mascotas WHERE nombre = '" + this.nombreMascota +
                 "' AND tipo_animal = '" + this.raza + "' AND id_usuario = " + this.idCasaApto;
@@ -44,9 +44,8 @@ public class RegistroMascotas extends Services {
         try {
             int count = connection.getCount(query);
             if (count > 0) {
-                // Si la mascota ya está registrada, muestra un mensaje
-                System.out.println("La mascota ya se encuentra registrada.");
-                return; // Salir del método, ya no es necesario continuar
+                // Si la mascota ya está registrada, devuelve un mensaje
+                return "La mascota ya se encuentra registrada.";
             } else {
                 // Si la mascota no está registrada, realiza el registro
                 String insertQuery = "INSERT INTO mascotas(nombre, tipo_animal, id_usuario, perdido) VALUES ('"
@@ -57,13 +56,14 @@ public class RegistroMascotas extends Services {
 
                 int result = connection.updateDataBase(insertQuery);
                 if (result > 0) {
-                    System.out.println("Mascota registrada exitosamente.");
+                    return "Mascota registrada exitosamente.";
                 } else {
-                    System.out.println("Error al registrar la mascota.");
+                    return "Error al registrar la mascota.";
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return "Error al registrar la mascota.";
         }
     }
 
@@ -106,4 +106,3 @@ public class RegistroMascotas extends Services {
         pet1.registrarMascota();
     }
 }
-//

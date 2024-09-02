@@ -80,19 +80,19 @@ public class RegistroMascotasResidentController {
                 if (!perdido) {
                     // La mascota ha sido encontrada
                     registroMascotas.actualizarMascota();
-                    messageVerifyRegister.setText("La mascota ha sido encontrada. Registro guardado exitosamente");
+                    messageVerifyRegister.setText("La mascota ha sido actualizada a estado encontrado.");
                 } else {
                     // La mascota ya está registrada como perdida
                     messageVerifyRegister.setText("La mascota ya está registrada como perdida.");
                 }
             } else {
                 // La mascota no está registrada como perdida
-                registroMascotas.registrarMascota();
+                String mensaje = registroMascotas.registrarMascota(); // Captura el mensaje
+                messageVerifyRegister.setText(mensaje); // Muestra el mensaje en la app
+
                 if (perdido) {
-                    messageVerifyRegister.setText("La mascota ha sido reportada como perdida." +
-                            " En caso de encontrarla por favor actualice el registro");
-                } else {
-                    messageVerifyRegister.setText("Mascota registrada exitosamente.");
+                    messageVerifyRegister.setText("La mascota ha sido reportada como perdida. " +
+                            "En caso de encontrarla por favor actualice el registro.");
                 }
             }
 
@@ -112,13 +112,9 @@ public class RegistroMascotasResidentController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-
-    private void mostrarAlerta(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
+        // Crea un nuevo Stage y muestra la nueva escena
+        Stage nuevoStage = new Stage();
+        nuevoStage.setScene(scene);
+        nuevoStage.show();
     }
 }
-//
