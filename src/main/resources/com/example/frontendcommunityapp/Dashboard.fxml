@@ -31,7 +31,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="88.0" layoutY="87.0" prefHeight="17.0" prefWidth="120.0" text="User" textFill="#cfe1e8">
+                              <Label fx:id="bienvenidaAdmin" layoutX="88.0" layoutY="87.0" prefHeight="17.0" prefWidth="120.0" text="Admin" textFill="#cfe1e8">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -44,6 +44,16 @@
                                     <String fx:value="logout" />
                                     <String fx:value="shadow" />
                                  </styleClass></Button>
+                              <Label layoutX="14.0" layoutY="116.0" text="ID Admin:" textFill="#f3f1f1">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="idAdmin" layoutX="88.0" layoutY="116.0" prefHeight="17.0" prefWidth="120.0" text="ID" textFill="#cfe1e8">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                      </children>

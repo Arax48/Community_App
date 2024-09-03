@@ -16,9 +16,19 @@ public class DashboardController {
     private Scene scene;
     private Parent root;
 
+    @FXML
+    private Label bienvenidaAdmin;
+
+    @FXML
+    private Label idAdmin;
 
     private Button serviceButton;
 
+    // Este método se llamará desde LoginController para establecer el nombre y el ID del vigilante
+    public void setAdminDetails(String name, int idUsuario) {
+        bienvenidaAdmin.setText(name);
+        idAdmin.setText(String.valueOf(idUsuario));
+    }
 /*
     public void switchToServicesPage(ActionEvent event) throws IOException {
         root  = FXMLLoader.load(getClass().getResource("ServicesResident.fxml"));

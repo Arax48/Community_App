@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.ServicesAdminController">
 
@@ -25,7 +26,7 @@
                                 <Button fx:id="buttonMascotasAdmin" layoutX="45.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchToMascotasAdmin" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Mascotas" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="603.0" layoutY="14.0" prefHeight="213.0" prefWidth="210.0">
+                        <AnchorPane layoutX="524.0" layoutY="14.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -34,7 +35,7 @@
                                 </ImageView>
                                 <Button fx:id="buttonAnuncios" layoutX="33.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchAnunciosPage" prefHeight="48.0" prefWidth="145.0" styleClass="nav-btn" stylesheets="@Style.css" text="Anuncios" />
                             </children></AnchorPane>
-                        <AnchorPane layoutX="163.0" layoutY="254.0" prefHeight="213.0" prefWidth="210.0">
+                        <AnchorPane layoutX="14.0" layoutY="256.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -43,7 +44,7 @@
                                 </ImageView>
                                 <Button fx:id="buttonRegisterUser" layoutX="45.0" layoutY="151.0" mnemonicParsing="false" onAction="#switchRegisterPage" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Registros" />
                             </children></AnchorPane>
-                        <AnchorPane layoutX="462.0" layoutY="246.0" prefHeight="213.0" prefWidth="210.0">
+                        <AnchorPane layoutX="291.0" layoutY="247.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="31.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -62,7 +63,26 @@
                                 <Button layoutX="45.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchToPagosPage" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Pagos" />
                             </children>
                         </AnchorPane>
-                  <Button fx:id="buttonAtrasAdmin" layoutX="33.0" layoutY="421.0" mnemonicParsing="false" onAction="#switchToAdminDashboard" prefHeight="30.0" prefWidth="61.0" styleClass="nav-btn" stylesheets="@Style.css" text="Atras" />
+                  <Label layoutX="536.0" layoutY="316.0" prefHeight="30.0" prefWidth="93.0" text="Bienvenido,">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bienvenidaAdmin" layoutX="636.0" layoutY="316.0" prefHeight="30.0" prefWidth="85.0" text="Admin">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="537.0" layoutY="361.0" prefHeight="30.0" prefWidth="93.0" text="ID Admin:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idAdmin" layoutX="637.0" layoutY="361.0" prefHeight="30.0" prefWidth="85.0" text="ID">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                     </children>
                 </AnchorPane>
             </children>

@@ -68,7 +68,13 @@ public class LoginController {
                             rs.getString(7),
                             rs.getString(8));
 
-                    root = FXMLLoader.load(getClass().getResource("ServicesResident.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
+                    root = loader.load();
+
+                    // Obtener el controlador y pasar los detalles del Residente
+                    ServicesResidentController servicesResidentController = loader.getController();
+                    servicesResidentController.setResidentDetails(loggedInResident.getNombre(), loggedInResident.getId_usuario());
+
                     stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -83,7 +89,14 @@ public class LoginController {
                             rs.getString(7),
                             rs.getString(8));
 
-                    root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+                    // Cargar la vista del Admin con FXMLLoader
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesAdmin.fxml"));
+                    root = loader.load();
+
+                    // Obtener el controlador y pasar los detalles del Admin
+                    ServicesAdminController servicesAdminController = loader.getController();
+                    servicesAdminController.setAdminDetails(loggedInAdmin.getNombre(), loggedInAdmin.getId_usuario());
+
                     stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
