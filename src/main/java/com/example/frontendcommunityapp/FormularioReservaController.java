@@ -45,7 +45,7 @@ public class FormularioReservaController {
 
         // Verificar si ya existe una reserva
         String query = "SELECT * FROM reservas WHERE id_area = ? AND fecha = ? AND horario = ?";
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/community", "root", "1234");
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/community", "root", "_3GTh=FB<s{7l6B");
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setInt(1, areaId);
             pstmt.setString(2, fecha);
