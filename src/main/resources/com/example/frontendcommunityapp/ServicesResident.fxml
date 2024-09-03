@@ -72,8 +72,11 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
+                  <Button fx:id="registrarVisitante" layoutX="663.0" layoutY="384.0" mnemonicParsing="false" onAction="#switchRegistrarVisitanteResidentePage" prefHeight="66.0" prefWidth="120.0" text="Registrar Visitante" />
                </children>
+
             </AnchorPane>
+            
          </children>
       </AnchorPane>
    </children>

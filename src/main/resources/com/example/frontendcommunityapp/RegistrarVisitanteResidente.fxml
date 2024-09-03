@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.RegistrarVisitanteController">
+    <children>
+        <AnchorPane prefHeight="82.0" prefWidth="520.0" style="-fx-background-color: #246861;">
+            <children>
+                <ImageView fitHeight="42.0" fitWidth="69.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/logo.jpg" />
+                    </image>
+                </ImageView>
+                <Label layoutX="99.0" layoutY="28.0" text="Registro de visitantes">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Button fx:id="buttonAtrasPagarResident" mnemonicParsing="false" onAction="#volverAServiciosAdmin" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #848e96; -fx-text-fill: white;" styleClass="nav-btn" text="Atras" />
+            </children></AnchorPane>
+        <Label layoutX="59.0" layoutY="109.0" text="Nombre">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textFieldNombre" layoutX="59.0" layoutY="129.0" />
+        <Label layoutX="59.0" layoutY="188.0" text="Telefono">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textFieldTelefono" layoutX="59.0" layoutY="208.0" />
+        <Label layoutX="298.0" layoutY="99.0" text="Numero de Torre">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textFieldTorre" layoutX="298.0" layoutY="119.0" />
+        <Label layoutX="298.0" layoutY="154.0" text="Numero de Apto">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textFieldApto" layoutX="298.0" layoutY="174.0" />
+        <Button fx:id="buttonRegistrar" layoutX="222.0" layoutY="444.0" mnemonicParsing="false" onAction="#registrarVisitante" prefHeight="42.0" prefWidth="76.0" text="Registrar" />
+      <Label layoutX="298.0" layoutY="210.0" text="Doc. Identidad">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldId" layoutX="298.0" layoutY="230.0" />
+      <Label layoutX="122.0" layoutY="267.0" prefHeight="20.0" prefWidth="105.0" text="Propósito Visita">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="tfTextArea1" layoutX="25.0" layoutY="287.0" prefHeight="144.0" prefWidth="299.0" />
+      <DatePicker fx:id="datePicker" layoutX="332.0" layoutY="315.0" />
+      <Label layoutX="372.0" layoutY="287.0" text="Fecha De Visita">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="367.0" layoutY="372.0" text="Hora" />
+      <Label layoutX="402.0" layoutY="347.0" prefHeight="25.0" prefWidth="34.0" text="Hora">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="446.0" layoutY="372.0" text="Minuto" />
+      <TextField fx:id="tfHora" layoutX="349.0" layoutY="398.0" prefHeight="25.0" prefWidth="64.0" />
+      <TextField fx:id="tfMinuto" layoutX="433.0" layoutY="398.0" prefHeight="25.0" prefWidth="64.0" />
+      <Label layoutX="419.0" layoutY="401.0" text=":">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

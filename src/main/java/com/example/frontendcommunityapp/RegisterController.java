@@ -97,35 +97,42 @@ public class RegisterController implements Initializable {
 
 
             if (user == "Admin") {
+                if (nombre.isEmpty() || telefono.isEmpty() || email.isEmpty() ||
+                    pass.isEmpty() || username.isEmpty() || torre.isEmpty() || apto.isEmpty()) {
+                    errorMessage.setText("Digite todos los campos");
+            } else {
+
                 Admin createdAdmin = new Admin(12, nombre,
                         telefono, email, pass, username, torre, apto);
 
                 createdAdmin.registrarAdminDB(nombre, telefono, email, pass, username, torre, apto);
                 System.out.println("Admin creado con éxtio");
             }
-
+            }
             else if (user == "Residente") {
-
+                if (nombre.isEmpty() || telefono.isEmpty() || email.isEmpty() ||
+                    pass.isEmpty() || username.isEmpty() || torre.isEmpty() || apto.isEmpty()) {
+                errorMessage.setText("Digite todos los campos");
+            } else {
                 Resident createdResident = new Resident(12, nombre,
-                        telefono, email, pass, username, torre, apto );
+                        telefono, email, pass, username, torre, apto);
 
                 createdResident.registrarResidentDB(nombre, telefono, email, pass, username, torre, apto);
                 System.out.println("Residente creado con éxtio");
             }
-
-            else {
-                if(!torre.isEmpty() || !apto.isEmpty() ){
-                    errorMessage.setText("Vigilante no se le asocia torre y apto favor dejar los campos vacios");
-                }
-
-
+        } else if(user == "Vigilante") {
+            if (!torre.isEmpty() || !apto.isEmpty()) {
+                errorMessage.setText("Vigilante no se le asocia torre y apto favor dejar los campos vacios");
+            }  else {
                 Vigilante createdVigilante = new Vigilante(12, nombre,
                         telefono, email, pass, username);
 
                 createdVigilante.registrarVigilanteDB(nombre, telefono, email, pass, username);
                 System.out.println("Vigilante creado con éxtio");
+                }
 
             }
+
 
     }
 
