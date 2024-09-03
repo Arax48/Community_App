@@ -14,12 +14,24 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="145.0" layoutY="33.0" prefHeight="35.0" prefWidth="123.0" text="User">
+            <!-- Este es el Label que mostrará el nombre del usuario -->
+            <Label fx:id="vigilanteNameLabel" layoutX="145.0" layoutY="33.0" prefHeight="35.0" prefWidth="200.0" text="User">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button fx:id="salirVigilanteServices" layoutX="504.0" layoutY="33.0" mnemonicParsing="false" onAction="#salirVigilanteServices" prefHeight="35.0" prefWidth="65.0" styleClass="nav-btn" stylesheets="@Style.css" text="Salir" />
+            <!-- Este es el Label que mostrará el ID del usuario -->
+            <Label layoutX="14.0" layoutY="80.0" prefHeight="35.0" prefWidth="123.0" text="ID Usuario:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="vigilanteIdLabel" layoutX="145.0" layoutY="80.0" prefHeight="35.0" prefWidth="200.0" text="ID">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="salirVigilanteServices" layoutX="504.0" layoutY="33.0" mnemonicParsing="false" onAction="#salirVigilanteServices" prefHeight="35.0" prefWidth="65.0" styleClass="nav-btn" stylesheets="@Style.css" text="SALIR" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="6.0" layoutY="103.0" prefHeight="289.0" prefWidth="589.0" styleClass="nav-form" stylesheets="@Style.css">

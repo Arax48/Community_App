@@ -45,7 +45,7 @@ public class FormularioReservaController {
 
         // Verificar si ya existe una reserva
         String query = "SELECT * FROM reservas WHERE id_area = ? AND fecha = ? AND horario = ?";
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/communityappdb", "silvana", "");
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/community", "root", "1234");
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setInt(1, areaId);
             pstmt.setString(2, fecha);
@@ -56,7 +56,7 @@ public class FormularioReservaController {
                 showAlert("Reserva Existente", "Ya hay una reserva para el área en esta fecha y horario.");
             } else {
                 // Insertar nueva reserva
-                String insertQuery = "INSERT INTO reservas (nombre, casa, fecha, horario, contacto, id_area) VALUES (?, ?, ?, ?, ?, ?)";
+                String insertQuery = "INSERT INTO reservas (nombre, casa, fecha, horario, contacto, id_area, id_usuario) VALUES (?, ?, ?, ?, ?, ?,?)";
                 try (PreparedStatement pstmtInsert = conn.prepareStatement(insertQuery)) {
                     pstmtInsert.setString(1, nombre);
                     pstmtInsert.setString(2, casa);
@@ -64,6 +64,7 @@ public class FormularioReservaController {
                     pstmtInsert.setString(4, horario);
                     pstmtInsert.setString(5, contacto);
                     pstmtInsert.setInt(6, areaId);
+                    pstmtInsert.setInt(7, 20);
                     pstmtInsert.executeUpdate();
                     showAlert("Reserva Exitosa", "Reserva realizada con éxito.");
                 }

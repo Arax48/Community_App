@@ -5,17 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class CommunityApp extends Application {
 
-    /////
-
     @Override
     public void start(Stage stage) throws IOException {////
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);//fxmlLoader.load()
         stage.setTitle("CommunityApp");

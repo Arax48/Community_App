@@ -4,13 +4,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #87BEEB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.LoginController">
 
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <AnchorPane prefHeight="50.0" prefWidth="50.0" />
+    <AnchorPane prefHeight="50.0" prefWidth="50.0" />
 
     <!-- Agregamos la imagen del logo -->
     <ImageView fx:id="logoImageView" fitHeight="150" fitWidth="200">
@@ -26,19 +27,20 @@
         <Label text="Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
         <PasswordField fx:id="passwordField" promptText="Escriba su contraseña" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-        <Label fx:id="mylabel" text="Hi!" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <!-- Mensaje de validación -->
+        <Label fx:id="mylabel" text=" " style="-fx-text-fill: blue; -fx-font-weight: bold;" GridPane.columnSpan="2" GridPane.rowIndex="2" alignment="CENTER" />
 
-        <Button fx:id="loginButton" onAction="#handleLoginButtonAction" text="Ingresar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button fx:id="loginButton" onAction="#handleLoginButtonAction" text="Ingresar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-        
-      <columnConstraints>
-         <ColumnConstraints />
-         <ColumnConstraints />
-      </columnConstraints>
-      <rowConstraints>
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-      </rowConstraints>
+        <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
     </GridPane>
 </VBox>

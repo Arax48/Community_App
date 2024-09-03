@@ -7,8 +7,11 @@
     <children>
         <Label alignment="CENTER" layoutX="0.0" layoutY="10.0" prefWidth="400.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: 'Arial'; -fx-padding: 10px; -fx-background-color: #a8afb5; -fx-border-color: #ccc; -fx-border-radius: 5px; -fx-background-radius: 5px;" styleClass="titulo" text="Reporte De Novedades " textAlignment="CENTER" />
 
+        <Label fx:id="nombreVigilanteLabel" layoutX="20.0" layoutY="320.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" text="Nombre Vigilante:" />
+        <TextField fx:id="nombreVigilanteField" layoutX="150.0" layoutY="320.0" editable="false" styleClass="mascotas-form" />
+
         <Label layoutX="20.0" layoutY="80.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" styleClass="label" text="ID Vigilante:" />
-        <TextField fx:id="idUsuarioField" layoutX="150.0" layoutY="80.0" styleClass="mascotas-form" />
+        <TextField fx:id="idUsuarioField" disable="true" layoutX="150.0" layoutY="80.0" styleClass="mascotas-form" />
 
         <Label layoutX="20.0" layoutY="120.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" styleClass="label" text="Fecha:" />
         <TextField fx:id="fechaField" layoutX="150.0" layoutY="120.0" promptText="YYYY-MM-DD" styleClass="mascotas-form" />
@@ -19,7 +22,7 @@
         <Label layoutX="20.0" layoutY="200.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" styleClass="label" text="Descripción:" />
         <TextArea fx:id="descripcionField" layoutX="150.0" layoutY="200.0" prefHeight="100.0" styleClass="mascotas-form" />
 
-        <Button layoutX="150.0" layoutY="320.0" onAction="#registrarNovedad" style="-fx-text-fill: black; -fx-background-color: #a8afb5; -fx-font-weight: bold; -fx-pref-width: 150; -fx-pref-height: 40;" text="Enviar Novedad" />
-        <Button layoutX="150.0" layoutY="370.0" onAction="#volverAServiciosVigilante" style="-fx-text-fill: black; -fx-background-color: #a8afb5; -fx-font-weight: bold; -fx-pref-width: 100; -fx-pref-height: 30;" text="Atrás" />
+        <Button layoutX="150.0" layoutY="370.0" onAction="#registrarNovedad" style="-fx-text-fill: black; -fx-background-color: #a8afb5; -fx-font-weight: bold; -fx-pref-width: 150; -fx-pref-height: 40;" text="Enviar Novedad" />
+        <Button layoutX="150.0" layoutY="420.0" onAction="#volverAServiciosVigilante" style="-fx-text-fill: black; -fx-background-color: #a8afb5; -fx-font-weight: bold; -fx-pref-width: 100; -fx-pref-height: 30;" text="Atrás" />
     </children>
 </AnchorPane>
