@@ -63,26 +63,27 @@
                                 <Button layoutX="45.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchToPagosPage" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Pagos" />
                             </children>
                         </AnchorPane>
-                  <Label layoutX="536.0" layoutY="316.0" prefHeight="30.0" prefWidth="93.0" text="Bienvenido,">
+                  <Label layoutX="510.0" layoutY="288.0" prefHeight="30.0" prefWidth="163.0" text="Bienvenido, Admin:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="bienvenidaAdmin" layoutX="636.0" layoutY="316.0" prefHeight="30.0" prefWidth="85.0" text="Admin">
+                  <Label fx:id="bienvenidaAdmin" layoutX="680.0" layoutY="288.0" prefHeight="30.0" prefWidth="85.0" text="Admin">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="537.0" layoutY="361.0" prefHeight="30.0" prefWidth="93.0" text="ID Admin:">
+                  <Label layoutX="537.0" layoutY="333.0" prefHeight="30.0" prefWidth="93.0" text="ID Admin:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="idAdmin" layoutX="637.0" layoutY="361.0" prefHeight="30.0" prefWidth="85.0" text="ID">
+                  <Label fx:id="idAdmin" layoutX="637.0" layoutY="333.0" prefHeight="30.0" prefWidth="85.0" text="ID">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
+                  <Button fx:id="salirAdmin" layoutX="603.0" layoutY="409.0" mnemonicParsing="false" onAction="#switchLogin" prefHeight="39.0" prefWidth="85.0" styleClass="nav-btn" stylesheets="@Style.css" text="Salir" />
                     </children>
                 </AnchorPane>
             </children>

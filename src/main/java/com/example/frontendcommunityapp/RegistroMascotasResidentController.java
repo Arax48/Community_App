@@ -1,12 +1,14 @@
 package com.example.frontendcommunityapp;
 
 import com.example.frontendcommunityapp.Model.Services.RegistroMascotas;
+import com.example.frontendcommunityapp.Model.Services.Services;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -32,7 +34,20 @@ public class RegistroMascotasResidentController {
     @FXML
     private TextField messageVerifyRegister;
 
+    @FXML
+    private TextField nombreResidentMascota;
+
+    @FXML
+    private TextField idResidentMascota;
+
     private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    public void setResidentDetails(String name, int idUsuario) {
+        nombreResidentMascota.setText(name);
+        idResidentMascota.setText(String.valueOf(idUsuario));
+    }
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -89,17 +104,30 @@ public class RegistroMascotasResidentController {
     }
 
     public void volver(ActionEvent event) throws IOException {
-        Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        // Cierra la ventana actual
-        stageActual.close();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
+            root = loader.load();
 
-        // Carga la escena de anterior
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        // Crea un nuevo Stage y muestra la nueva escena
-        Stage nuevoStage = new Stage();
-        nuevoStage.setScene(scene);
-        nuevoStage.show();
+            ServicesResidentController controller = loader.getController();
+            // Pasa los datos al controlador de ServicesVigilante
+            controller.setResidentDetails(nombreResidentMascota.getText(), Integer.parseInt(idResidentMascota.getText()));
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (NumberFormatException e) {
+            mostrarAlerta("Error", "ID de Resident no válido.");
+        }
+    }
+
+    private void mostrarAlerta(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

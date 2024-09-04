@@ -16,6 +16,8 @@ public class AreasComunesController {
 
     private List<AreasComunes> areasComunes;
 
+
+
     public AreasComunesController() {
         areasComunes = new ArrayList<>();
         inicializarAreasComunes();

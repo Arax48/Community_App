@@ -3,12 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.AreasComunesController"
-            style="-fx-background-color: #87BEEB;"> <!-- Fondo azul -->
+<AnchorPane style="-fx-background-color: #87BEEB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.AreasComunesController"> <!-- Fondo azul -->
     <children>
-        <Label layoutX="20.0" layoutY="20.0" text="Selecciona un Área Común"
-               style="-fx-font-size: 24px; -fx-font-weight: bold;" /> <!-- Título más grande y en negrita -->
+        <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Selecciona un Área Común" /> <!-- Título más grande y en negrita -->
 
         <!-- Área Común: Salón Social -->
         <AnchorPane layoutX="20.0" layoutY="60.0" prefHeight="180.0" prefWidth="220.0">
@@ -18,7 +17,7 @@
                         <Image url="@images/salon_social.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="50.0" layoutY="160.0" text="Seleccionar Área" onAction="#reservarSalonSocial" />
+                <Button layoutX="50.0" layoutY="160.0" onAction="#reservarSalonSocial" text="Seleccionar Área" />
             </children>
         </AnchorPane>
 
@@ -30,7 +29,7 @@
                         <Image url="@images/piscina.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="50.0" layoutY="160.0" text="Seleccionar Área" onAction="#reservarPiscina" />
+                <Button layoutX="50.0" layoutY="160.0" onAction="#reservarPiscina" text="Seleccionar Área" />
             </children>
         </AnchorPane>
 
@@ -42,7 +41,7 @@
                         <Image url="@images/juegos.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="50.0" layoutY="160.0" text="Seleccionar Área" onAction="#reservarJuegos" />
+                <Button layoutX="50.0" layoutY="160.0" onAction="#reservarJuegos" text="Seleccionar Área" />
             </children>
         </AnchorPane>
 
@@ -54,13 +53,31 @@
                         <Image url="@images/canchadep.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="50.0" layoutY="160.0" text="Seleccionar Área" onAction="#reservarCanchaDeportiva" />
+                <Button layoutX="50.0" layoutY="160.0" onAction="#reservarCanchaDeportiva" text="Seleccionar Área" />
             </children>
         </AnchorPane>
 
         <!-- Botón Atrás mejor ubicado -->
-        <Button text="Atrás" onAction="#volverServicesResident" layoutX="600.0" layoutY="400.0" prefWidth="100.0" />
+        <Button layoutX="822.0" layoutY="14.0" onAction="#volverServicesResident" prefWidth="100.0" text="Atrás" />
+      <Label layoutX="321.0" layoutY="293.0" text="Bienvenido, Residente: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="514.0" layoutY="293.0" text="Nombre">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="385.0" layoutY="344.0" text="ID, Residente: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="514.0" layoutY="344.0" prefHeight="27.0" prefWidth="46.0" text="ID">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
-
-

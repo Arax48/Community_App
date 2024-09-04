@@ -2,14 +2,27 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="400" prefWidth="600" spacing="40.0" stylesheets="@Style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.frontendcommunityapp.RegistroMascotasAdminController">
+<VBox alignment="CENTER" prefHeight="400" prefWidth="600" spacing="40.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.RegistroMascotasAdminController">
+   <Label prefHeight="27.0" prefWidth="80.0" text="ID Admin">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="idAdminMascotas" promptText="ID Admin" disable="true"/>
+   <Label text="Nombre Admin">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="nombreAdminMascotas" promptText="Nombre Admin" disable="true"/>
 
     <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" styleClass="text-color" text="Mascotas" />
 
     <VBox alignment="CENTER" spacing="30.0">
-        <TextField fx:id="textFieldNombreMascota" prefWidth="200" promptText="Nombre de la mascota" styleClass="mascotas-form" />
         <TextField fx:id="textFieldRaza" prefWidth="200" promptText="Raza de la mascota" styleClass="mascotas-form" />
+        <TextField fx:id="textFieldNombreMascota" prefWidth="200" promptText="Nombre de la mascota" styleClass="mascotas-form" />
         <TextField fx:id="textFieldIdCasaApto" prefWidth="200" promptText="Casa o Apartamento No°" styleClass="mascotas-form" />
     </VBox>
 

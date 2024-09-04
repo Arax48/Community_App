@@ -22,6 +22,8 @@ public class FormularioReservaController {
     private TextField horarioField;
     @FXML
     private TextField contactoField;
+    @FXML
+    private TextField idResidenteReserva;
 
     private int areaId;
 

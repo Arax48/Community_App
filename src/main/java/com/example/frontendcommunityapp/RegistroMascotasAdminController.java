@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -18,6 +19,10 @@ import java.util.logging.Logger;
 public class RegistroMascotasAdminController {
 
     private static final Logger logger = Logger.getLogger(RegistroMascotasResidentController.class.getName());
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @FXML
     private TextField textFieldNombreMascota;
@@ -34,7 +39,17 @@ public class RegistroMascotasAdminController {
     @FXML
     private TextField messageVerifyRegister;
 
-    private Stage stage;
+    @FXML
+    private TextField idAdminMascotas;
+
+    @FXML
+    private TextField nombreAdminMascotas;
+
+
+    public void setAdminDetails(String name, int idUsuario) {
+        nombreAdminMascotas.setText(name);
+        idAdminMascotas.setText(String.valueOf(idUsuario));
+    }
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -46,21 +61,31 @@ public class RegistroMascotasAdminController {
     }
 
     public void volverAServiciosAdmin(ActionEvent event) throws IOException {
-        // Obtén el Stage de la ventana actual
-        Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesAdmin.fxml"));
+            root = loader.load();
 
-        // Cierra la ventana actual
-        stageActual.close();
+            ServicesAdminController controller = loader.getController();
+            // Pasa los datos al controlador de ServicesVigilante
+            controller.setAdminDetails(nombreAdminMascotas.getText(), Integer.parseInt(idAdminMascotas.getText()));
 
-        // Carga la escena de "ServicesResident.fxml"
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesAdmin.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (NumberFormatException e) {
+            mostrarAlerta("Error", "ID de Admin no válido.");
+        }
+    }
 
-        // Crea un nuevo Stage y muestra la escena
-        Stage nuevoStage = new Stage();
-        nuevoStage.setScene(scene);
-        nuevoStage.show();
+    private void mostrarAlerta(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     public void registrarMascota(ActionEvent event) throws IOException {

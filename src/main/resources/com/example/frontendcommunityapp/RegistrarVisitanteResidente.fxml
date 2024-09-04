@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.RegistrarVisitanteController">
+<AnchorPane prefHeight="500.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.RegistrarVisitanteResidenteController">
     <children>
         <AnchorPane prefHeight="82.0" prefWidth="520.0" style="-fx-background-color: #246861;">
             <children>
@@ -19,7 +19,7 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Button fx:id="buttonAtrasPagarResident" mnemonicParsing="false" onAction="#volverAServiciosAdmin" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #848e96; -fx-text-fill: white;" styleClass="nav-btn" text="Atras" />
+                <Button fx:id="servicesResident" layoutX="358.0" layoutY="24.0" mnemonicParsing="false" onAction="#volverAServiciosResident" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #848e96; -fx-text-fill: white;" styleClass="nav-btn" text="Atras" />
             </children></AnchorPane>
         <Label layoutX="59.0" layoutY="109.0" text="Nombre">
             <font>

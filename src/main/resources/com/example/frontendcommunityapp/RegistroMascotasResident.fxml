@@ -2,8 +2,21 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="400" prefWidth="600" spacing="20.0" stylesheets="@Style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.frontendcommunityapp.RegistroMascotasResidentController">
+<VBox alignment="CENTER" prefHeight="400" prefWidth="600" spacing="20.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.RegistroMascotasResidentController">
+   <Label prefHeight="27.0" prefWidth="102.0" text="ID Resident">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="idResidentMascota" promptText="ID Resident" disable="true" />
+   <Label prefHeight="27.0" prefWidth="151.0" text="Nombre Resident">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="nombreResidentMascota" disable="true"/>
 
     <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" styleClass="text-color" text="Registro de Mascotas" />
 
@@ -25,5 +38,5 @@
         <Button fx:id="buttonRegistrar" onAction="#registrarMascota" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #848e96; -fx-text-fill: white;" styleClass="nav-btn" text="Registrar Mascota" />
     </HBox>
 
-    <TextField fx:id="messageVerifyRegister" prefHeight="40.0" prefWidth="300.0" editable="false" styleClass="mascotas-form" promptText="Mensajes de verificación" />
+    <TextField fx:id="messageVerifyRegister" editable="false" prefHeight="40.0" prefWidth="300.0" promptText="Mensajes de verificación" styleClass="mascotas-form" />
 </VBox>

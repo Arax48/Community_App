@@ -65,14 +65,22 @@ public class ServicesAdminController {
 
     public void switchToMascotasAdmin(ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("RegistroMascotasAdmin.fxml"));
+            // Cargar la vista de NovedadesVigilante.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegistroMascotasAdmin.fxml"));
+            root = loader.load();
+
+            // Obtener el controlador de la vista NovedadesVigilante.fxml
+            RegistroMascotasAdminController controller = loader.getController();
+            controller.setAdminDetails(bienvenidaAdmin.getText(), Integer.parseInt(idAdmin.getText()));
+
+            // Cambiar la escena a NovedadesVigilante.fxml
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     public void switchAnunciosPage(ActionEvent actionEvent) {
@@ -113,6 +121,18 @@ public class ServicesAdminController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void switchLogin(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
 
