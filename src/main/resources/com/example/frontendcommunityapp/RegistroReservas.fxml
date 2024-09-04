@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.frontendcommunityapp.RegistroReservasController" prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Label text="Registro Reservas de Áreas Comunes" style="-fx-font-size: 18px; -fx-font-weight: bold;" layoutX="20.0" layoutY="20.0"/>
+
+        <TableView fx:id="tablaReservas" layoutX="20.0" layoutY="60.0" prefHeight="300.0" prefWidth="560.0">
+            <columns>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="100.0"/>
+                <TableColumn fx:id="colCasa" text="Casa" prefWidth="100.0"/>
+                <TableColumn fx:id="colFecha" text="Fecha" prefWidth="100.0"/>
+                <TableColumn fx:id="colHorario" text="Horario" prefWidth="100.0"/>
+                <TableColumn fx:id="colContacto" text="Contacto" prefWidth="100.0"/>
+            </columns>
+        </TableView>
+
+        <Button text="Atrás" onAction="#regresarServicios" layoutX="20.0" layoutY="370.0"/>
+    </children>
+</AnchorPane>

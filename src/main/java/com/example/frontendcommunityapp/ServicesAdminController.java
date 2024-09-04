@@ -250,8 +250,27 @@ public class ServicesAdminController {
     }
 
 
+    public void switchToReservasComunes(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegistroReservas.fxml"));
+            root = loader.load();
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            showAlert("Error", "No se pudo abrir la vista de reservas comunes: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
-
-
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
 }
+
 
