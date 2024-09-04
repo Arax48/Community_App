@@ -1,6 +1,11 @@
 package com.example.frontendcommunityapp.Model.Users;
 
 import com.example.frontendcommunityapp.Controller.DbConnection;
+import com.example.frontendcommunityapp.Model.Services.NovedadVigilante;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Visitante {
 
@@ -64,6 +69,9 @@ public class Visitante {
         return docIdentidad;
     }
 
+
+
+
     public void registrarVisitanteDB(String nombre, String fecha, String horaVisita,
                                      String telefono, String docIdentidad, String torre,
                                      String apto, String proposito) {
@@ -81,6 +89,36 @@ public class Visitante {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<Visitante> obtenerTodosLosVisitantes() {
+        DbConnection connection = new DbConnection();
+        String query = "SELECT * FROM visitante";
+        List<Visitante> listaVisitantes = new ArrayList<>();
+
+        try {
+            ResultSet resultSet = connection.getQueryTable(query);
+
+            while (resultSet.next()) {
+                int idVisitante = resultSet.getInt("id_Visitante");
+                String nombre = resultSet.getString("nombre");
+                String fecha = resultSet.getString("fecha");
+                String horaVisita = resultSet.getString("horaVisita");
+                String telefono = resultSet.getString("telefono");
+                String torre = resultSet.getString("torre");
+                String apto = resultSet.getString("apto");
+                String docIdentidad = resultSet.getString("docIdentidad");
+                String proposito = resultSet.getString("proposito");
+
+                Visitante visitante = new Visitante(idVisitante, nombre, fecha, horaVisita, telefono, docIdentidad, torre, apto, proposito);
+                listaVisitantes.add(visitante);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return listaVisitantes;
     }
 
 }

@@ -91,6 +91,7 @@
                                 </ImageView>
                                 <Button fx:id="buttonListadosAnuncios" layoutX="220.0" layoutY="0.0" mnemonicParsing="false" onAction="#switchToListadosAnunciosPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Anuncios" />
                                 <Button fx:id="buttonListadosQuejas" layoutX="220.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToListadosQuejasPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Quejas" />
+                                <Button fx:id="buttonListadosVisitantes" layoutX="220.0" layoutY="200.0" mnemonicParsing="false" onAction="#switchToListadosVisitantesPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Visitantes" />
                             </children>
                         </AnchorPane>
 

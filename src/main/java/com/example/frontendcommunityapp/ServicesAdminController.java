@@ -4,6 +4,7 @@ import com.example.frontendcommunityapp.Model.Services.Anuncio;
 import com.example.frontendcommunityapp.Model.Services.NovedadVigilante;
 import com.example.frontendcommunityapp.Model.Services.RegistroMascotas;
 import com.example.frontendcommunityapp.Model.Services.Queja;
+import com.example.frontendcommunityapp.Model.Users.Visitante;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -226,6 +227,25 @@ public class ServicesAdminController {
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void switchToListadosVisitantesPage(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ListadosVisitantes.fxml"));
+            Parent root = loader.load();
+
+            ListadosVisitantesController controller = loader.getController();
+            List<Visitante> listaVisitantes = Visitante.obtenerTodosLosVisitantes();
+            controller.mostrarListaVisitantes(listaVisitantes);
+
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
