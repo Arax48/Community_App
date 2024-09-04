@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
 <AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.ListadosQuejasController">
    <children>
-      <ListView fx:id="listaQuejasView" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" />
-      <Button fx:id="backButton" layoutX="14.0" layoutY="470.0" text="Regresar" onAction="#handleBackButtonAction"/>
+      <ListView fx:id="listaQuejasView" layoutX="7.0" layoutY="70.0" prefHeight="400.0" prefWidth="600.0" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="470.0" onAction="#handleBackButtonAction" text="Regresar" />
+      <Label layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="98.0" text="Listado Quejas" />
    </children>
 </AnchorPane>
