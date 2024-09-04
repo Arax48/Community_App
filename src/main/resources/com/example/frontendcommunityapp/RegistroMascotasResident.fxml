@@ -14,8 +14,11 @@
         <Label text="Raza de la mascota:" />
         <TextField fx:id="textFieldRaza" prefWidth="200" promptText="Raza de la mascota" styleClass="mascotas-form" />
 
+        <Label text="ID de Usuario:" />
+        <TextField fx:id="textFieldIdUsuario" prefWidth="200" promptText="ID de Usuario" styleClass="mascotas-form" />
+
         <Label text="Casa o Apartamento No°:" />
-        <TextField fx:id="textFieldIdCasaApto" prefWidth="200" promptText="Casa o Apartamento No°" styleClass="mascotas-form" />
+        <TextField fx:id="textFieldCasaOapto" prefWidth="200" promptText="Casa o Apartamento No°" styleClass="mascotas-form" />
     </VBox>
 
     <CheckBox fx:id="checkBoxPerdido" styleClass="mascotas-form" text="Reportar como perdido" />

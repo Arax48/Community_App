@@ -1,93 +1,94 @@
 package com.example.frontendcommunityapp;
 
 import com.example.frontendcommunityapp.Model.Services.RegistroMascotas;
-import javafx.event.ActionEvent;
+import com.example.frontendcommunityapp.Controller.DbConnection;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.SelectionModel;
+import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class RegistroMascotasAdminController {
-
-    private static final Logger logger = Logger.getLogger(RegistroMascotasResidentController.class.getName());
-
-    @FXML
-    private TextField textFieldNombreMascota;
+    private static final Logger logger = Logger.getLogger(RegistroMascotasAdminController.class.getName());
 
     @FXML
-    private TextField textFieldRaza;
+    private ListView<String> listViewMascotas;
 
     @FXML
-    private TextField textFieldIdCasaApto;
+    private TextArea textAreaMascotasPerdidas;
 
     @FXML
-    private CheckBox checkBoxPerdido;
-
-    @FXML
-    private TextField messageVerifyRegister;
-
-    private Stage stage;
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
+    private TextArea textAreaDetallesMascota; // Para mostrar detalles de la mascota seleccionada
 
     @FXML
     public void initialize() {
-
+        cargarMascotas();
+        cargarMascotasPerdidas();
     }
 
-    public void volverAServiciosAdmin(ActionEvent event) throws IOException {
-        // Obtén el Stage de la ventana actual
-        Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        // Cierra la ventana actual
-        stageActual.close();
-
-        // Carga la escena de "ServicesResident.fxml"
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesAdmin.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-
-        // Crea un nuevo Stage y muestra la escena
-        Stage nuevoStage = new Stage();
-        nuevoStage.setScene(scene);
-        nuevoStage.show();
-    }
-
-    public void registrarMascota(ActionEvent event) throws IOException {
+    private void cargarMascotas() {
+        DbConnection connection = new DbConnection();
+        String query = "SELECT nombre, raza FROM mascotas";
         try {
-            String nombre = textFieldNombreMascota.getText();
-            String raza = textFieldRaza.getText();
-            String idCasaAptoText = textFieldIdCasaApto.getText();
-
-            if (nombre.isEmpty() || raza.isEmpty() || idCasaAptoText.isEmpty()) {
-                logger.log(Level.WARNING, "Todos los campos deben ser completados.");
-                return;
+            ResultSet resultSet = connection.getQueryTable(query);
+            while (resultSet != null && resultSet.next()) {
+                String nombre = resultSet.getString("nombre");
+                String raza = resultSet.getString("raza");
+                listViewMascotas.getItems().add(nombre + " - " + raza);
             }
-
-            int idUsuario = Integer.parseInt(idCasaAptoText);
-            boolean perdido = checkBoxPerdido.isSelected();
-
-            RegistroMascotas registro = new RegistroMascotas(nombre, raza, idUsuario, perdido);
-            registro.registrarMascota();
-
-            System.out.println("RegistroMascotas registrada: " + nombre);
-        } catch (NumberFormatException e) {
-            logger.log(Level.WARNING, "ID de usuario no válido.");
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Error al registrar mascota", e);
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error al cargar las mascotas.", e);
         }
-
-        messageVerifyRegister.setText("Mascota Registrada");
     }
 
+    private void cargarMascotasPerdidas() {
+        DbConnection connection = new DbConnection();
+        String query = "SELECT nombre, raza FROM mascotas WHERE perdido = 1";
+        try {
+            ResultSet resultSet = connection.getQueryTable(query);
+            StringBuilder mascotasPerdidas = new StringBuilder();
+            while (resultSet != null && resultSet.next()) {
+                String nombre = resultSet.getString("nombre");
+                String raza = resultSet.getString("raza");
+                mascotasPerdidas.append(nombre).append(" - ").append(raza).append("\n");
+            }
+            textAreaMascotasPerdidas.setText(mascotasPerdidas.toString());
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error al cargar las mascotas perdidas.", e);
+        }
+    }
+
+    @FXML
+    private void mostrarDetallesMascota(MouseEvent event) {
+        String selectedItem = listViewMascotas.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            String nombre = selectedItem.split(" - ")[0]; // Obtener el nombre de la mascota
+            mostrarDetalles(nombre);
+        }
+    }
+
+    private void mostrarDetalles(String nombreMascota) {
+        DbConnection connection = new DbConnection();
+        String query = "SELECT * FROM mascotas WHERE nombre = '" + nombreMascota + "'";
+        try {
+            ResultSet resultSet = connection.getQueryTable(query);
+            if (resultSet != null && resultSet.next()) {
+                String detalles = "Nombre: " + resultSet.getString("nombre") + "\n" +
+                        "Raza: " + resultSet.getString("raza") + "\n" +
+                        "ID Usuario: " + resultSet.getString("id_usuario") + "\n" +
+                        "Casa/Apartamento: " + resultSet.getString("casa_o_apto") + "\n" +
+                        "Estado Perdido: " + (resultSet.getBoolean("perdido") ? "Sí" : "No");
+                textAreaDetallesMascota.setText(detalles);
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error al cargar los detalles de la mascota.", e);
+        }
+    }
 }
+
+
