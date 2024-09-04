@@ -1,5 +1,6 @@
 package com.example.frontendcommunityapp;
 
+import com.example.frontendcommunityapp.Model.Services.NovedadVigilante;
 import com.example.frontendcommunityapp.Model.Services.RegistroMascotas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -154,6 +155,31 @@ public class ServicesAdminController {
             controller.mostrarListaMascotas(listaMascotas);
 
             // Cambiar la escena a ListadosAdmin.fxml
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void switchToListadosNovedadesPage(ActionEvent actionEvent) {
+        try {
+            // Cargar la vista de ListadosNovedades.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ListadosNovedades.fxml"));
+            root = loader.load();
+
+            // Obtener el controlador de la vista ListadosNovedades.fxml
+            ListadosVigilanteController controller = loader.getController();
+
+            // Obtener la lista de todas las novedades
+            List<NovedadVigilante> listaNovedades = NovedadVigilante.obtenerTodasLasNovedades();
+
+            // Pasar la lista de novedades al controlador
+            controller.mostrarListaNovedades(listaNovedades);
+
+            // Cambiar la escena a ListadosNovedades.fxml
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

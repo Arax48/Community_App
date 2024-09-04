@@ -1,7 +1,9 @@
 package com.example.frontendcommunityapp.Model.Services;
 
 import com.example.frontendcommunityapp.Controller.DbConnection;
-
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 public class NovedadVigilante {
 
     private String fecha;
@@ -43,6 +45,31 @@ public class NovedadVigilante {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<NovedadVigilante> obtenerTodasLasNovedades() {
+        DbConnection connection = new DbConnection();
+        String query = "SELECT idVigilante, fecha, Asunto, Peticion FROM novedadesvigilante";
+        List<NovedadVigilante> listaNovedades = new ArrayList<>();
+
+        try {
+            ResultSet resultSet = connection.getQueryTable(query);
+
+            while (resultSet.next()) {
+                String fecha = resultSet.getString("fecha");
+                String asunto = resultSet.getString("Asunto");
+                String descripcion = resultSet.getString("Peticion");
+                int idVigilante = resultSet.getInt("idVigilante");
+
+                NovedadVigilante novedad = new NovedadVigilante(fecha, asunto, descripcion, idVigilante);
+                listaNovedades.add(novedad);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return listaNovedades;
     }
 }
 
