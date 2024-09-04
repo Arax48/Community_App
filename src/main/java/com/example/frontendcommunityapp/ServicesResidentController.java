@@ -107,4 +107,24 @@ public class ServicesResidentController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void irNotificaciones(ActionEvent event) {
+        try {
+            // Cargar la vista de NovedadesVigilante.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Notificaciones.fxml"));
+            root = loader.load();
+
+            // Obtener el controlador de la vista NovedadesVigilante.fxml
+            NotificacionesController controller = loader.getController();
+            controller.setResidentDetails(bienvenidaResident.getText(), Integer.parseInt(idResident.getText()));
+
+            // Cambiar la escena a NovedadesVigilante.fxml
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
