@@ -40,6 +40,12 @@ public class AnunciosPageController {
     private TextField nombreAdmin;
 
 
+    public void setNotificacion(String notificacion) {
+
+
+    }
+
+
     @FXML
     public void initialize() {
         // Inicializa el campo de fecha con la fecha y hora actuales
@@ -86,10 +92,9 @@ public class AnunciosPageController {
         fechaField.clear();
         asuntoField.clear();
         descripcionField.clear();
-        idAdmin1.clear();
     }
 
-    public void registrarAnuncio(ActionEvent actionEvent) {
+    public void registrarAnuncio(ActionEvent actionEvent) throws IOException {
 
         String fecha = fechaField.getText();
         String asunto = asuntoField.getText();
@@ -106,7 +111,26 @@ public class AnunciosPageController {
         Anuncio anuncio = new Anuncio(fecha, asunto, descripcion, idAdmin);
         anuncio.registrarAnuncioDB();
 
+
+
+
         mostrarAlerta("Éxito", "Anuncio registrada correctamente.");
-        limpiarCampos();
+        //limpiarCampos();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Notificaciones.fxml"));
+        root = loader.load();
+        NotificacionesController controller = loader.getController();
+        // Pasa los datos al controlador de ServicesAdmin
+        controller.setNotificacion(asunto);
+
+        /*
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        */
+
+
+
     }
 }
