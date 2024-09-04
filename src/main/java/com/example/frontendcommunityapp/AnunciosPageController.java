@@ -62,7 +62,7 @@ public class AnunciosPageController {
 
             ServicesAdminController controller = loader.getController();
             // Pasa los datos al controlador de ServicesAdmin
-            controller.setAdminDetails(nombreAdmin.getText(), Integer.parseInt(idAdmin1.getText()));
+           // controller.setAdminDetails(nombreAdmin.getText(), Integer.parseInt(idAdmin1.getText()));
 
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);

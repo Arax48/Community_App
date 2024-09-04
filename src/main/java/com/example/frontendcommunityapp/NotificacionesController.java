@@ -61,7 +61,7 @@ public class NotificacionesController {
 
             ServicesResidentController controller = loader.getController();
             // Pasa los datos al controlador de ServicesResident
-            controller.setResidentDetails(nombreResidentNotificaciones.getText(), Integer.parseInt(idResidentNotificaciones.getText()));
+            //controller.setResidentDetails(nombreResidentNotificaciones.getText(), Integer.parseInt(idResidentNotificaciones.getText()));
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);

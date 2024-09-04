@@ -73,7 +73,7 @@ public class LoginController {
 
                     // Obtener el controlador y pasar los detalles del Residente
                     ServicesResidentController servicesResidentController = loader.getController();
-                    servicesResidentController.setResidentDetails(loggedInResident.getNombre(), loggedInResident.getId_usuario());
+                   // servicesResidentController.setResidentDetails(loggedInResident.getNombre(), loggedInResident.getId_usuario());
 
                     stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     scene = new Scene(root);

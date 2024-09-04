@@ -3,10 +3,13 @@ package com.example.frontendcommunityapp;
 import com.example.frontendcommunityapp.Model.Services.RegistroMascotas;
 import com.example.frontendcommunityapp.Controller.DbConnection;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.SelectionModel;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

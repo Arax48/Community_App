@@ -96,7 +96,7 @@ public class QuejasController {
 
             ServicesResidentController controller = loader.getController();
             // Pasa los datos al controlador de ServicesResident
-            controller.setResidentDetails(nombreQuejas.getText(), Integer.parseInt(idUsuarioField.getText()));
+           // controller.setResidentDetails(nombreQuejas.getText(), Integer.parseInt(idUsuarioField.getText()));
 
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);

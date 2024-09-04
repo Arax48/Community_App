@@ -77,7 +77,7 @@ public class ServicesAdminController {
 
             // Obtener el controlador de la vista NovedadesVigilante.fxml
             RegistroMascotasAdminController controller = loader.getController();
-            controller.setAdminDetails(bienvenidaAdmin.getText(), Integer.parseInt(idAdmin.getText()));
+            //controller.setAdminDetails(bienvenidaAdmin.getText(), Integer.parseInt(idAdmin.getText()));
 
             // Cambiar la escena a NovedadesVigilante.fxml
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -149,13 +149,13 @@ public class ServicesAdminController {
             root = loader.load();
 
             // Obtener el controlador de la vista ListadosAdmin.fxml
-            ListadosAdminController controller = loader.getController();
+            //ListadosAdminController controller = loader.getController();
 
             // Obtener la lista de todas las mascotas
-            List<RegistroMascotas> listaMascotas = RegistroMascotas.obtenerTodasLasMascotas();
+            //List<RegistroMascotas> listaMascotas = RegistroMascotas.obtenerTodasLasMascotas();
 
             // Pasar la lista de mascotas al controlador
-            controller.mostrarListaMascotas(listaMascotas);
+          //  controller.mostrarListaMascotas(listaMascotas);
 
             // Cambiar la escena a ListadosAdmin.fxml
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
