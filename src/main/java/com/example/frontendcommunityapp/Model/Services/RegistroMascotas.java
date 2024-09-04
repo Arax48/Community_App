@@ -1,6 +1,9 @@
 package com.example.frontendcommunityapp.Model.Services;
 
 import com.example.frontendcommunityapp.Controller.DbConnection;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegistroMascotas extends Services {
 
@@ -95,6 +98,31 @@ public class RegistroMascotas extends Services {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<RegistroMascotas> obtenerTodasLasMascotas() {
+        DbConnection connection = new DbConnection();
+        String query = "SELECT nombre, tipo_animal, id_usuario, perdido FROM mascotas";
+        List<RegistroMascotas> listaMascotas = new ArrayList<>();
+
+        try {
+            ResultSet resultSet = connection.getQueryTable(query);
+
+            while (resultSet.next()) {
+                String nombreMascota = resultSet.getString("nombre");
+                String raza = resultSet.getString("tipo_animal");
+                int idCasaApto = resultSet.getInt("id_usuario");
+                boolean perdido = resultSet.getBoolean("perdido");
+
+                RegistroMascotas mascota = new RegistroMascotas(nombreMascota, raza, idCasaApto, perdido);
+                listaMascotas.add(mascota);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return listaMascotas;
     }
 
     public static void main(String[] args) {
