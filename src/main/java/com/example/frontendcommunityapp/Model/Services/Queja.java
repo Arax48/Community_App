@@ -2,6 +2,11 @@ package com.example.frontendcommunityapp.Model.Services;
 
 import com.example.frontendcommunityapp.Controller.DbConnection;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Queja {
 
     private String fecha;
@@ -44,4 +49,28 @@ public class Queja {
             e.printStackTrace();
         }
     }
+
+    public static List<Queja> obtenerTodasLasQuejas() {
+        List<Queja> quejas = new ArrayList<>();
+        String query = "SELECT * FROM quejasYpeticiones";
+        DbConnection connection = new DbConnection();
+
+        try {
+            ResultSet resultSet = connection.getQueryTable(query);
+            while (resultSet.next()) {
+                String fecha = resultSet.getString("fecha");
+                String asunto = resultSet.getString("asunto");
+                String descripcion = resultSet.getString("peticion");
+                int idUsuario = resultSet.getInt("id_usuario");
+
+                Queja queja = new Queja(fecha, asunto, descripcion, idUsuario);
+                quejas.add(queja);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return quejas;
+    }
+
 }

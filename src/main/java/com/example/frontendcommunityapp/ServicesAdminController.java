@@ -3,6 +3,7 @@ package com.example.frontendcommunityapp;
 import com.example.frontendcommunityapp.Model.Services.Anuncio;
 import com.example.frontendcommunityapp.Model.Services.NovedadVigilante;
 import com.example.frontendcommunityapp.Model.Services.RegistroMascotas;
+import com.example.frontendcommunityapp.Model.Services.Queja;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -208,6 +209,26 @@ public class ServicesAdminController {
             throw new RuntimeException(e);
         }
     }
+
+    @FXML
+    private void switchToListadosQuejasPage(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ListadosQuejas.fxml"));
+            root = loader.load();
+
+            ListadosQuejasController controller = loader.getController();
+            List<Queja> listaQuejas = Queja.obtenerTodasLasQuejas();
+            controller.mostrarListaQuejas(listaQuejas);
+
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 
 
