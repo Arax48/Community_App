@@ -1,5 +1,6 @@
 package com.example.frontendcommunityapp;
 
+import com.example.frontendcommunityapp.Model.Services.Anuncio;
 import com.example.frontendcommunityapp.Model.Services.NovedadVigilante;
 import com.example.frontendcommunityapp.Model.Services.RegistroMascotas;
 import javafx.event.ActionEvent;
@@ -180,6 +181,25 @@ public class ServicesAdminController {
             controller.mostrarListaNovedades(listaNovedades);
 
             // Cambiar la escena a ListadosNovedades.fxml
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void switchToListadosAnunciosPage(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ListadosAnuncios.fxml"));
+            root = loader.load();
+
+            ListadosAnunciosController controller = loader.getController();
+            List<Anuncio> listaAnuncios = Anuncio.obtenerTodosLosAnuncios();
+            controller.mostrarListaAnuncios(listaAnuncios);
+
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

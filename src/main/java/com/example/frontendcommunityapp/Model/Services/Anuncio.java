@@ -2,6 +2,10 @@ package com.example.frontendcommunityapp.Model.Services;
 
 import com.example.frontendcommunityapp.Controller.DbConnection;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Anuncio {
 
 
@@ -44,5 +48,30 @@ public class Anuncio {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<Anuncio> obtenerTodosLosAnuncios() {
+        DbConnection connection = new DbConnection();
+        String query = "SELECT fecha, asunto, anuncio, idAdmin FROM anuncio";
+        List<Anuncio> listaAnuncios = new ArrayList<>();
+
+        try {
+            ResultSet resultSet = connection.getQueryTable(query);
+
+            while (resultSet.next()) {
+                String fecha = resultSet.getString("fecha");
+                String asunto = resultSet.getString("asunto");
+                String descripcion = resultSet.getString("anuncio");
+                int idAdmin = resultSet.getInt("idAdmin");
+
+                Anuncio anuncio = new Anuncio(fecha, asunto, descripcion, idAdmin);
+                listaAnuncios.add(anuncio);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return listaAnuncios;
     }
 }

@@ -1,7 +1,7 @@
 package com.example.frontendcommunityapp;
 
+import com.example.frontendcommunityapp.Controller.DbConnection;
 import com.example.frontendcommunityapp.Model.Services.Anuncio;
-import com.example.frontendcommunityapp.Model.Services.NovedadVigilante;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,11 +14,13 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AnunciosPageController {
-
 
     private Stage stage;
     private Scene scene;
@@ -38,13 +40,6 @@ public class AnunciosPageController {
 
     @FXML
     private TextField nombreAdmin;
-
-
-    public void setNotificacion(String notificacion) {
-
-
-    }
-
 
     @FXML
     public void initialize() {
@@ -94,8 +89,8 @@ public class AnunciosPageController {
         descripcionField.clear();
     }
 
+    @FXML
     public void registrarAnuncio(ActionEvent actionEvent) throws IOException {
-
         String fecha = fechaField.getText();
         String asunto = asuntoField.getText();
         String descripcion = descripcionField.getText();
@@ -111,26 +106,25 @@ public class AnunciosPageController {
         Anuncio anuncio = new Anuncio(fecha, asunto, descripcion, idAdmin);
         anuncio.registrarAnuncioDB();
 
+        mostrarAlerta("Éxito", "Anuncio registrado correctamente.");
+        limpiarCampos();
 
-
-
-        mostrarAlerta("Éxito", "Anuncio registrada correctamente.");
-        //limpiarCampos();
-
+        // Opcionalmente, puedes redirigir al usuario a una página de notificaciones
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Notificaciones.fxml"));
         root = loader.load();
         NotificacionesController controller = loader.getController();
-        // Pasa los datos al controlador de ServicesAdmin
+        // Pasa los datos al controlador de Notificaciones
         controller.setNotificacion(asunto);
 
-        /*
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        */
-
-
-
     }
+
+
+
+
+
+
 }

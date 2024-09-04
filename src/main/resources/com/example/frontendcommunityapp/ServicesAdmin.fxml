@@ -23,7 +23,8 @@
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@images/Pets.png" />
-                                    </image></ImageView>
+                                    </image>
+                                </ImageView>
                                 <Button fx:id="buttonMascotasAdmin" layoutX="45.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchToMascotasAdmin" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Mascotas" />
                             </children>
                         </AnchorPane>
@@ -45,7 +46,8 @@
                                     </image>
                                 </ImageView>
                                 <Button fx:id="buttonRegisterUser" layoutX="45.0" layoutY="151.0" mnemonicParsing="false" onAction="#switchRegisterPage" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Registros" />
-                            </children></AnchorPane>
+                            </children>
+                        </AnchorPane>
                         <AnchorPane layoutX="291.0" layoutY="247.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="31.0" pickOnBounds="true" preserveRatio="true">
@@ -54,7 +56,8 @@
                                     </image>
                                 </ImageView>
                                 <Button layoutX="45.0" layoutY="162.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Areas Comunes" />
-                            </children></AnchorPane>
+                            </children>
+                        </AnchorPane>
                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="145.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -76,6 +79,17 @@
                                 </ImageView>
                                 <Button fx:id="buttonListados" layoutX="220.0" layoutY="0.0" mnemonicParsing="false" onAction="#switchToListadosPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Mascotas" />
                                 <Button fx:id="buttonListadosN" layoutX="220.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToListadosNovedadesPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Novedad" />
+                            </children>
+                        </AnchorPane>
+
+                        <AnchorPane layoutX="14.0" layoutY="705.0" prefHeight="213.0" prefWidth="420.0">
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/Dollar.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="buttonListadosAnuncios" layoutX="220.0" layoutY="0.0" mnemonicParsing="false" onAction="#switchToListadosAnunciosPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Anuncios" />
                             </children>
                         </AnchorPane>
 
