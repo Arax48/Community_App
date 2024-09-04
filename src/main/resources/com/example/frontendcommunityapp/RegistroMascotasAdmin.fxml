@@ -14,5 +14,7 @@
 
         <Label text="Detalles de la Mascota" layoutX="14.0" layoutY="260.0" />
         <TextArea fx:id="textAreaDetallesMascota" layoutX="14.0" layoutY="280.0" prefHeight="100.0" prefWidth="636.0" editable="false" />
+        <Button text="Atrás" onAction="#volver" layoutX="320.0" layoutY="500.0"
+                style="-fx-font-size: 16px; -fx-background-color: #003366; -fx-text-fill: white;" />
     </children>
 </AnchorPane>

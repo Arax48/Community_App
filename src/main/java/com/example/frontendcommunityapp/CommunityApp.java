@@ -15,7 +15,7 @@ public class CommunityApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {////
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ServicesAdmin.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);//fxmlLoader.load()
         stage.setTitle("CommunityApp");

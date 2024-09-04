@@ -16,15 +16,19 @@
                         <String fx:value="shadow" />
                     </styleClass>
                     <children>
+                        <!-- Botón 1: Mascotas -->
                         <AnchorPane layoutX="291.0" layoutY="14.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@images/Pets.png" />
-                                    </image></ImageView>
+                                    </image>
+                                </ImageView>
                                 <Button fx:id="buttonMascotasAdmin" layoutX="45.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchToMascotasAdmin" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Mascotas" />
                             </children>
                         </AnchorPane>
+
+                        <!-- Botón 2: Anuncios -->
                         <AnchorPane layoutX="603.0" layoutY="14.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
@@ -33,7 +37,10 @@
                                     </image>
                                 </ImageView>
                                 <Button fx:id="buttonAnuncios" layoutX="33.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchAnunciosPage" prefHeight="48.0" prefWidth="145.0" styleClass="nav-btn" stylesheets="@Style.css" text="Anuncios" />
-                            </children></AnchorPane>
+                            </children>
+                        </AnchorPane>
+
+                        <!-- Botón 3: Registros -->
                         <AnchorPane layoutX="163.0" layoutY="254.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
@@ -42,7 +49,10 @@
                                     </image>
                                 </ImageView>
                                 <Button fx:id="buttonRegisterUser" layoutX="45.0" layoutY="151.0" mnemonicParsing="false" onAction="#switchRegisterPage" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Registros" />
-                            </children></AnchorPane>
+                            </children>
+                        </AnchorPane>
+
+                        <!-- Botón 4: Reservas Comunes -->
                         <AnchorPane layoutX="462.0" layoutY="246.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="31.0" pickOnBounds="true" preserveRatio="true">
@@ -50,8 +60,11 @@
                                         <Image url="@images/Location2.png" />
                                     </image>
                                 </ImageView>
-                                <Button layoutX="45.0" layoutY="162.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Areas Comunes" />
-                            </children></AnchorPane>
+                                <Button layoutX="45.0" layoutY="162.0" mnemonicParsing="false" onAction="#switchToReservasComunes" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Reservas Comunes" />
+                            </children>
+                        </AnchorPane>
+
+                        <!-- Botón 5: Pagos -->
                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="145.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -62,7 +75,9 @@
                                 <Button layoutX="45.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchToPagosPage" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Pagos" />
                             </children>
                         </AnchorPane>
-                  <Button fx:id="buttonAtrasAdmin" layoutX="33.0" layoutY="421.0" mnemonicParsing="false" onAction="#switchToAdminDashboard" prefHeight="30.0" prefWidth="61.0" styleClass="nav-btn" stylesheets="@Style.css" text="Atras" />
+
+                        <!-- Botón Atras -->
+                        <Button fx:id="buttonAtrasAdmin" layoutX="33.0" layoutY="421.0" mnemonicParsing="false" onAction="#switchToAdminDashboard" prefHeight="30.0" prefWidth="61.0" styleClass="nav-btn" stylesheets="@Style.css" text="Atras" />
                     </children>
                 </AnchorPane>
             </children>
