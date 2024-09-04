@@ -1,5 +1,6 @@
 package com.example.frontendcommunityapp;
 
+import com.example.frontendcommunityapp.Model.Services.RegistroMascotas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ServicesAdminController {
     private Stage stage;
@@ -134,5 +136,35 @@ public class ServicesAdminController {
         stage.setScene(scene);
         stage.show();
     }
+
+
+    public void switchToListadosPage(ActionEvent actionEvent) {
+        try {
+            // Cargar la vista de ListadosAdmin.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ListadosAdmin.fxml"));
+            root = loader.load();
+
+            // Obtener el controlador de la vista ListadosAdmin.fxml
+            ListadosAdminController controller = loader.getController();
+
+            // Obtener la lista de todas las mascotas
+            List<RegistroMascotas> listaMascotas = RegistroMascotas.obtenerTodasLasMascotas();
+
+            // Pasar la lista de mascotas al controlador
+            controller.mostrarListaMascotas(listaMascotas);
+
+            // Cambiar la escena a ListadosAdmin.fxml
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+
 }
 

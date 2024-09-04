@@ -63,7 +63,18 @@
                                 <Button layoutX="45.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchToPagosPage" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Pagos" />
                             </children>
                         </AnchorPane>
-                  <Label layoutX="510.0" layoutY="288.0" prefHeight="30.0" prefWidth="163.0" text="Bienvenido, Admin:">
+                        <AnchorPane layoutX="14.0" layoutY="480.0" prefHeight="213.0" prefWidth="210.0">
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/Dollar.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="buttonListados" layoutX="45.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchToListadosPage" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados" />
+                            </children>
+                        </AnchorPane>
+
+                        <Label layoutX="510.0" layoutY="288.0" prefHeight="30.0" prefWidth="163.0" text="Bienvenido, Admin:">
                      <font>
                         <Font size="18.0" />
                      </font>
