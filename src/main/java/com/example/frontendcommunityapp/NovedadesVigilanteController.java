@@ -84,8 +84,8 @@ public class NovedadesVigilanteController {
         fechaField.clear();
         asuntoField.clear();
         descripcionField.clear();
-        idUsuarioField.clear();
-        nombreVigilanteField.clear();
+        //idUsuarioField.clear();
+        //nombreVigilanteField.clear();
     }
 
     @FXML

@@ -105,7 +105,7 @@ public class Visitante {
                 String fecha = resultSet.getString("fecha");
                 String horaVisita = resultSet.getString("horaVisita");
                 String telefono = resultSet.getString("telefono");
-                String torre = resultSet.getString("torre");
+                String torre = resultSet.getString("proposito");
                 String apto = resultSet.getString("apto");
                 String docIdentidad = resultSet.getString("docIdentidad");
                 String proposito = resultSet.getString("proposito");

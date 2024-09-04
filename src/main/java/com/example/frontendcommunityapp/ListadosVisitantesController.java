@@ -35,7 +35,7 @@ public class ListadosVisitantesController {
         for (Visitante visitante : listaVisitantes) {
             String detalle = "ID: " + visitante.getIdVisitante() + ", Nombre: " + visitante.getNombre() +
 
-                    ", Teléfono: " + visitante.getTelefono() + ", Torre: " + visitante.getTorre() +
+                    ", Teléfono: " + visitante.getTelefono() + ", Proposito: " + visitante.getTorre() +
                     ", Apt: " + visitante.getApto() + ", Doc ID: " + visitante.getDocIdentidad();
 
             listaVisitantesView.getItems().add(detalle);

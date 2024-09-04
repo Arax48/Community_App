@@ -30,14 +30,22 @@ public class ServicesVigilanteController {
 
     public void switchRegistrarVisitantePage(ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("RegistrarVisitante.fxml"));
+            // Cargar la vista de NovedadesVigilante.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegistrarVisitante.fxml"));
+            root = loader.load();
+
+            // Obtener el controlador de la vista NovedadesVigilante.fxml
+            RegistrarVisitanteController controller = loader.getController();
+            controller.setVigilanteDetails(vigilanteNameLabel.getText(), Integer.parseInt(vigilanteIdLabel.getText()));
+
+            // Cambiar la escena a NovedadesVigilante.fxml
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     public void salirVigilanteServices(ActionEvent actionEvent) {
