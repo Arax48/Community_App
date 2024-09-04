@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,7 +27,10 @@ public class RegistroMascotasResidentController {
     private TextField textFieldRaza;
 
     @FXML
-    private TextField textFieldIdCasaApto;
+    private TextField textFieldIdUsuario; // Cambiado de IdCasaApto a IdUsuario
+
+    @FXML
+    private TextField textFieldCasaOapto; // Nueva columna
 
     @FXML
     private CheckBox checkBoxPerdido;
@@ -58,63 +62,78 @@ public class RegistroMascotasResidentController {
         // Inicialización si es necesaria
     }
 
+    @FXML
     public void registrarMascota(ActionEvent actionEvent) {
         try {
             String nombre = textFieldNombreMascota.getText();
             String raza = textFieldRaza.getText();
-            String idCasaAptoText = textFieldIdCasaApto.getText();
+            String idUsuario = textFieldIdUsuario.getText();
+            String casaOapto = textFieldCasaOapto.getText();
 
-            if (nombre.isEmpty() || raza.isEmpty() || idCasaAptoText.isEmpty()) {
+            // Validación de campos vacíos
+            if (nombre.isEmpty() || raza.isEmpty() || idUsuario.isEmpty() || casaOapto.isEmpty()) {
                 logger.log(Level.WARNING, "Todos los campos deben ser completados.");
                 messageVerifyRegister.setText("Por favor completa todos los campos.");
                 return;
             }
 
-            int idUsuario = Integer.parseInt(idCasaAptoText);
             boolean perdido = checkBoxPerdido.isSelected();
 
-            RegistroMascotas registroMascotas = new RegistroMascotas(nombre, raza, idUsuario, perdido);
+            RegistroMascotas registroMascotas = new RegistroMascotas(nombre, raza, idUsuario, casaOapto, perdido);
 
-            // Verificar si la mascota ya está registrada como perdida
-            if (registroMascotas.existeMascotaPerdida()) {
-                if (!perdido) {
-                    // La mascota ha sido encontrada
-                    registroMascotas.actualizarMascota();
-                    messageVerifyRegister.setText("La mascota ha sido actualizada a estado encontrado.");
-                } else {
-                    // La mascota ya está registrada como perdida
-                    messageVerifyRegister.setText("La mascota ya está registrada como perdida.");
-                }
-            } else {
-                // La mascota no está registrada como perdida
-                String mensaje = registroMascotas.registrarMascota(); // Captura el mensaje
-                messageVerifyRegister.setText(mensaje); // Muestra el mensaje en la app
+            // Llama al método para registrar o actualizar la mascota
+            String mensaje = registroMascotas.registrarMascota();
+            messageVerifyRegister.setText(mensaje);
 
-                if (perdido) {
-                    messageVerifyRegister.setText("La mascota ha sido reportada como perdida. " +
-                            "En caso de encontrarla por favor actualice el registro.");
-                }
+            if (perdido) {
+                messageVerifyRegister.setText("La mascota ha sido reportada como perdida. " +
+                        "En caso de encontrarla, por favor actualice el registro.");
             }
 
             logger.log(Level.INFO, "Mascota registrada exitosamente.");
         } catch (NumberFormatException e) {
-            logger.log(Level.SEVERE, "Error al convertir el ID de casa/apto a entero.", e);
-            messageVerifyRegister.setText("Error al convertir el ID de casa/apto a entero.");
+            logger.log(Level.SEVERE, "Error al convertir el ID de usuario.", e);
+            messageVerifyRegister.setText("Error al convertir el ID de usuario.");
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error inesperado.", e);
+            messageVerifyRegister.setText("Ocurrió un error inesperado.");
         }
     }
 
+    @FXML
     public void volver(ActionEvent event) throws IOException {
         Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        // Cierra la ventana actual
         stageActual.close();
 
-        // Carga la escena de anterior
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-        // Crea un nuevo Stage y muestra la nueva escena
         Stage nuevoStage = new Stage();
         nuevoStage.setScene(scene);
         nuevoStage.show();
     }
+    @FXML
+    public void actualizarEstadoPerdido(ActionEvent actionEvent) {
+        try {
+            String nombre = textFieldNombreMascota.getText();
+            String idUsuario = textFieldIdUsuario.getText();
+
+            // Solo se necesita el nombre y el idUsuario para actualizar el estado
+            RegistroMascotas registroMascotas = new RegistroMascotas(nombre, "", idUsuario, "", true); // Se asume que se está reportando como perdido
+
+            if (registroMascotas.actualizarEstadoPerdido()) {
+                messageVerifyRegister.setText("El estado de la mascota ha sido actualizado a perdido.");
+            } else {
+                messageVerifyRegister.setText("Error al actualizar el estado de la mascota.");
+            }
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error inesperado.", e);
+            messageVerifyRegister.setText("Ocurrió un error inesperado.");
+        }
+    }
+
 }
+
+
+
+

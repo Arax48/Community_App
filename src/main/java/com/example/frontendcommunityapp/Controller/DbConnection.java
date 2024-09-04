@@ -9,7 +9,7 @@ public class DbConnection {
     private final String password = "";
 
     // Método para establecer la conexión a la base de datos
-    private Connection connect() {
+    public Connection connect() {
         try {
             return DriverManager.getConnection(dbUrl, userName, password);
         } catch (SQLException e) {
@@ -19,7 +19,7 @@ public class DbConnection {
     }
 
     // Método para obtener un Statement
-    private Statement getStatement() {
+    public Statement getStatement() {
         try {
             Connection connection = connect();
             if (connection != null) {
