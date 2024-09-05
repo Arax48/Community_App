@@ -102,9 +102,11 @@ CommunityApp es una aplicación que permite optimizar los procesos de comunicaci
   3. Listado de anuncios le muestra al Admin los anuncios que ha enviado:
   ![image](https://github.com/user-attachments/assets/00777089-e00a-48fc-91f0-a47a95e95517)
 
-  4. Listado Visitantes 
+  4. Listado Visitantes le permite al Admin ver los visitantes registrados por el vigilante con sus detalles, entre estos si el visitante ha ingresado o no:
+  ![image](https://github.com/user-attachments/assets/08e06144-78af-4d13-975b-a3dc57c0e00d)
+
  
-  5. Listado Quejas le muestra al administrador las lista de quejas y peticiones activas e inactivas:
+  6. Listado Quejas le muestra al administrador las lista de quejas y peticiones activas e inactivas:
   ![image](https://github.com/user-attachments/assets/baca4781-5132-4604-9dd8-e45d497a7ce8)
 
 
