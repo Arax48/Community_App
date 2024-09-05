@@ -173,11 +173,7 @@ public class ServicesAdminController {
             // Obtener el controlador de la vista ListadosNovedades.fxml
             ListadosVigilanteController controller = loader.getController();
 
-            // Obtener la lista de todas las novedades
-            List<NovedadVigilante> listaNovedades = NovedadVigilante.obtenerTodasLasNovedades();
 
-            // Pasar la lista de novedades al controlador
-            controller.mostrarListaNovedades(listaNovedades);
 
             // Cambiar la escena a ListadosNovedades.fxml
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
