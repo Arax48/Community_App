@@ -3,19 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.frontendcommunityapp.ListadosAnunciosController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.frontendcommunityapp.ListadosAnunciosController">
 <children>
-   <Label text="Listado de Anuncios Registrados" layoutX="14.0" layoutY="14.0" />
-   <ListView fx:id="listViewMascotas" layoutX="14.0" layoutY="40.0" prefHeight="200.0" prefWidth="300.0" onMouseClicked="#mostrarDetallesMascota"/>
+   <Label layoutX="14.0" layoutY="14.0" text="Listado de Anuncios Registrados" />
+   <ListView fx:id="listViewMascotas" layoutX="14.0" layoutY="40.0" onMouseClicked="#mostrarDetallesMascota" prefHeight="200.0" prefWidth="300.0" />
 
-   <Label text="Anuncios Activos" layoutX="350.0" layoutY="14.0" />
-   <TextArea fx:id="textAreaMascotasPerdidas" layoutX="350.0" layoutY="40.0" prefHeight="200.0" prefWidth="300.0" editable="true" />
+   <Label layoutX="350.0" layoutY="14.0" text="Anuncios Activos" />
+   <TextArea fx:id="textAreaMascotasPerdidas" editable="true" layoutX="350.0" layoutY="40.0" prefHeight="200.0" prefWidth="300.0" />
 
-   <Label text="Detalles de la Mascota" layoutX="14.0" layoutY="260.0" />
-   <TextArea fx:id="textAreaDetallesMascota" layoutX="14.0" layoutY="280.0" prefHeight="100.0" prefWidth="636.0" editable="true" />
+   <Label layoutX="14.0" layoutY="260.0" text="Detalles Anuncio" />
+   <TextArea fx:id="textAreaDetallesMascota" editable="true" layoutX="14.0" layoutY="280.0" prefHeight="100.0" prefWidth="636.0" />
    <Button fx:id="backButton" layoutX="14.0" layoutY="470.0" onAction="#handleBackButtonAction" text="Regresar" />
 </children>
 </AnchorPane>

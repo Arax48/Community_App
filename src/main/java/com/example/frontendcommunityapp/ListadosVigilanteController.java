@@ -88,9 +88,9 @@ public class ListadosVigilanteController {
             ResultSet resultSet = connection.getQueryTable(query);
             if (resultSet != null && resultSet.next()) {
                 String detalles = "Nombre: " + resultSet.getString("asunto") + "\n" +
-                        "Raza: " + resultSet.getString("peticion") + "\n" +
+                        "Asunto: " + resultSet.getString("peticion") + "\n" +
                         "ID Usuario: " + resultSet.getString("idVigilante") + "\n" +
-                        "Casa/Apartamento: " + resultSet.getString("estado");
+                        "Estado: " + resultSet.getString("estado");
                 textAreaDetallesMascota.setText(detalles);
             }
         } catch (SQLException e) {

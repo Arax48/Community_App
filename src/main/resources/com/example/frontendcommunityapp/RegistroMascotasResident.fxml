@@ -15,9 +15,9 @@
         <TextField fx:id="textFieldRaza" prefWidth="200" promptText="Raza de la mascota" styleClass="mascotas-form" />
 
         <Label text="ID de Residente:" />
-        <TextField fx:id="idUsuarioMascotas" prefWidth="200" promptText="ID de Usuario" styleClass="mascotas-form" disable="true"/>
+        <TextField fx:id="idUsuarioMascotas" prefWidth="200" promptText="ID Usuario" styleClass="mascotas-form" />
       <Label text="Nombre Residente" />
-      <TextField fx:id="nombreUsuario" promptText="Nombre de Usuario" disable="true"/>
+      <TextField fx:id="nombreUsuario" promptText="Nombre Usuario" />
 
         <Label text="Casa o Apartamento No°:" />
         <TextField fx:id="textFieldCasaOapto" prefWidth="200" promptText="Casa o Apartamento No°" styleClass="mascotas-form" />

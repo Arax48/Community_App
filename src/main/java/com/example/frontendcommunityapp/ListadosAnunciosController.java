@@ -92,9 +92,9 @@ public class ListadosAnunciosController {
             if (resultSet != null && resultSet.next()) {
                 String detalles = "Asunto: " + resultSet.getString("asunto") + "\n" +
                         "Anuncio: " + resultSet.getString("anuncio") + "\n" +
-                        "ID Usuario: " + resultSet.getString("idAdmin") + "\n" +
-                        "Casa/Apartamento: " + resultSet.getString("fecha") + "\n" +
-                        "Estado Perdido: " + resultSet.getString("estado") ;
+                        "UsernameAdmin: " + resultSet.getString("idAdmin") + "\n" +
+                        "Fecha: " + resultSet.getString("fecha") + "\n" +
+                        "Anuncio Activo: " + resultSet.getString("estado") ;
                 textAreaDetallesMascota.setText(detalles);
             }
         } catch (SQLException e) {

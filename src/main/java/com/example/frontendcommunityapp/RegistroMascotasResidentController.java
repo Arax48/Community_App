@@ -67,7 +67,7 @@ public class RegistroMascotasResidentController {
         try {
             String nombre = textFieldNombreMascota.getText();
             String raza = textFieldRaza.getText();
-            String idUsuario = textFieldIdUsuario.getText();
+            String idUsuario = idUsuarioMascotas.getText();
             String casaOapto = textFieldCasaOapto.getText();
 
             // Validación de campos vacíos

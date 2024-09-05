@@ -144,7 +144,7 @@ public class RegisterController implements Initializable {
             }
         } else if(user == "Vigilante") {
             if (!apto.isEmpty()) {
-                errorMessage.setText("Vigilante no se le asocia torre y apto favor dejar los campos vacios");
+                errorMessage.setText("Vigilante no se le asocia apto favor dejar el campo vacío");
             }  else {
                 Vigilante createdVigilante = new Vigilante(12, nombre,
                         telefono, email, pass, username);

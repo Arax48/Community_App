@@ -7,7 +7,7 @@
     <children>
         <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #003366;" text="Formulario de Reserva" />
 
-        <Label  layoutX="20.0" layoutY="80.0" style="-fx-font-size: 16px;" text="Nombre de Residente:" />
+        <Label layoutX="20.0" layoutY="80.0" style="-fx-font-size: 16px;" text="Nombre de Residente:" />
         <TextField fx:id="nombreFieldReserva" layoutX="200.0" layoutY="80.0" prefWidth="200.0" style="-fx-font-size: 16px;" />
 
         <Label layoutX="20.0" layoutY="178.0" style="-fx-font-size: 16px;" text="Casa o Apto:" />
@@ -17,10 +17,10 @@
         <DatePicker fx:id="fechaField" layoutX="200.0" layoutY="218.0" prefWidth="200.0" />
 
         <Label layoutX="20.0" layoutY="258.0" style="-fx-font-size: 16px;" text="Horario de Reserva:" />
-        <TextField fx:id="horarioField" layoutX="200.0" layoutY="258.0" prefWidth="200.0" style="-fx-font-size: 16px;" />
+        <TextField fx:id="horarioField" layoutX="200.0" layoutY="293.0" prefWidth="200.0" style="-fx-font-size: 16px;" />
 
         <Label layoutX="20.0" layoutY="298.0" style="-fx-font-size: 16px;" text="Número de Contacto:" />
-        <TextField fx:id="contactoField" layoutX="200.0" layoutY="240.0" prefWidth="200.0" style="-fx-font-size: 16px;" />
+        <TextField fx:id="contactoField" layoutX="200.0" layoutY="253.0" prefWidth="200.0" style="-fx-font-size: 16px;" />
 
         <Button layoutX="200.0" layoutY="338.0" onAction="#reservarArea" style="-fx-font-size: 16px; -fx-background-color: #003366; -fx-text-fill: white;" text="Reservar" />
         <Button layoutX="320.0" layoutY="338.0" onAction="#volver" style="-fx-font-size: 16px; -fx-background-color: #003366; -fx-text-fill: white;" text="Atrás" />

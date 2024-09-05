@@ -8,7 +8,7 @@
         <Label alignment="CENTER" layoutX="0.0" layoutY="10.0" prefWidth="400.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: 'Arial'; -fx-padding: 10px; -fx-background-color: #a8afb5; -fx-border-color: #ccc; -fx-border-radius: 5px; -fx-background-radius: 5px;" styleClass="titulo" text="Peticiones o Quejas" textAlignment="CENTER" />
 
         <Label layoutX="20.0" layoutY="112.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" styleClass="label" text="Identificador:" />
-        <TextField fx:id="idUsuarioField" disable="true" layoutX="150.0" layoutY="112.0" styleClass="mascotas-form" />
+        <TextField fx:id="idUsuarioField" layoutX="150.0" layoutY="112.0" styleClass="mascotas-form" />
 
         <Label layoutX="20.0" layoutY="152.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" styleClass="label" text="Fecha:"  />
         <TextField fx:id="fechaField" layoutX="150.0" layoutY="152.0" promptText="YYYY-MM-DD" styleClass="mascotas-form" disable="true"/>

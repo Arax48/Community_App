@@ -108,7 +108,7 @@ public class AnunciosPageController {
 
         mostrarAlerta("Éxito", "Anuncio registrado correctamente.");
         limpiarCampos();
-
+        /*
         // Opcionalmente, puedes redirigir al usuario a una página de notificaciones
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Notificaciones.fxml"));
         root = loader.load();
@@ -120,6 +120,8 @@ public class AnunciosPageController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+         */
     }
 
 

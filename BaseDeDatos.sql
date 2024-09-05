@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `community` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `community`;
 -- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
 -- Host: localhost    Database: community
@@ -28,8 +30,9 @@ CREATE TABLE `anuncio` (
   `fecha` date DEFAULT NULL,
   `asunto` varchar(45) DEFAULT NULL,
   `anuncio` text,
+  `estado` varchar(45) NOT NULL DEFAULT 'A',
   PRIMARY KEY (`idAnuncio`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +41,7 @@ CREATE TABLE `anuncio` (
 
 LOCK TABLES `anuncio` WRITE;
 /*!40000 ALTER TABLE `anuncio` DISABLE KEYS */;
-INSERT INTO `anuncio` VALUES (1,232,'2002-01-21','zsdfd','asdfsd'),(2,12,'2001-02-12','asdasdfsdasdf','asdfasdf');
+INSERT INTO `anuncio` VALUES (11,20,'2024-09-05','Se cayó el vigilante','Se fracturó','A'),(12,19,'2024-09-05','Pagar arreglo matera','Pagar profa','A');
 /*!40000 ALTER TABLE `anuncio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,13 +73,13 @@ INSERT INTO `apartamentos` VALUES (2,'101',20);
 UNLOCK TABLES;
 
 --
--- Table structure for table `areas comunes`
+-- Table structure for table `areas_comunes`
 --
 
-DROP TABLE IF EXISTS `areas comunes`;
+DROP TABLE IF EXISTS `areas_comunes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `areas comunes` (
+CREATE TABLE `areas_comunes` (
   `id_area` int NOT NULL AUTO_INCREMENT,
   `nom_area` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_area`)
@@ -84,13 +87,13 @@ CREATE TABLE `areas comunes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `areas comunes`
+-- Dumping data for table `areas_comunes`
 --
 
-LOCK TABLES `areas comunes` WRITE;
-/*!40000 ALTER TABLE `areas comunes` DISABLE KEYS */;
-INSERT INTO `areas comunes` VALUES (1,'piscina'),(2,'juesgos'),(3,'Cancha Deportiva'),(4,'Salon Social');
-/*!40000 ALTER TABLE `areas comunes` ENABLE KEYS */;
+LOCK TABLES `areas_comunes` WRITE;
+/*!40000 ALTER TABLE `areas_comunes` DISABLE KEYS */;
+INSERT INTO `areas_comunes` VALUES (1,'Piscina'),(2,'Juegos'),(3,'Cancha Deportiva'),(4,'Salon Social');
+/*!40000 ALTER TABLE `areas_comunes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -105,7 +108,7 @@ CREATE TABLE `logintest` (
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`idLoginTest`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,12 +131,13 @@ DROP TABLE IF EXISTS `mascotas`;
 CREATE TABLE `mascotas` (
   `id_mascota` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `tipo_animal` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `id_usuario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `tipo_animal` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `id_usuario` int NOT NULL,
   `perdido` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id_mascota`),
-  KEY `id_dueno` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `raza` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
+  `casa_o_apto` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id_mascota`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,7 +146,7 @@ CREATE TABLE `mascotas` (
 
 LOCK TABLES `mascotas` WRITE;
 /*!40000 ALTER TABLE `mascotas` DISABLE KEYS */;
-INSERT INTO `mascotas` VALUES (1,'tin','Labrador','123','0'),(2,'alf','perrro','234','0'),(3,'alf','perrro','234','1'),(4,'kjhkjh','kjhkjh','54','0'),(5,'jhgjhg','jkhghj','565','0'),(6,'jkjlkj','lkjlkj','87','1'),(7,'sdfsd','jhhvjh','7676','1'),(8,'tomas','golden','101','1');
+INSERT INTO `mascotas` VALUES (1,'Tin',NULL,20,'1','Criolla','301'),(2,'Tomas',NULL,24,'1','Perro','301'),(4,'Brillo',NULL,24,'0','Gato','506'),(5,'Tin Tin',NULL,20,'1','Criolla','201'),(6,'Tims',NULL,20,'0','Perico','306'),(7,'tommy',NULL,20,'1','Pelicano','608');
 /*!40000 ALTER TABLE `mascotas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +167,7 @@ CREATE TABLE `novedadesvigilante` (
   PRIMARY KEY (`idNovedadesVigilante`),
   KEY `usuariovigilante_idx` (`idVigilante`),
   CONSTRAINT `vigilante_usuario` FOREIGN KEY (`idVigilante`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +176,7 @@ CREATE TABLE `novedadesvigilante` (
 
 LOCK TABLES `novedadesvigilante` WRITE;
 /*!40000 ALTER TABLE `novedadesvigilante` DISABLE KEYS */;
-INSERT INTO `novedadesvigilante` VALUES (1,21,'2024-09-03 06:10:09','NOVEDAD 1','SE ROMPIO LA MATERA DE LA TORRE 1','A'),(2,21,'2024-09-03 06:18:17','novedad 2','se entro ladron en la madrugada pero no se llevo nada','A'),(3,21,'2024-09-03 06:51:18','casa  302 sola','la desocuoaron ','A'),(4,21,'2024-09-03 07:00:04','ruptura agua','1234','A'),(5,21,'2024-09-03 08:39:36','REPORTE 45','SE DAÑO LA SALA DE BODEGA','A');
+INSERT INTO `novedadesvigilante` VALUES (1,21,'2024-09-03 06:10:09','NOVEDAD 1','SE ROMPIO LA MATERA DE LA TORRE 1','I'),(2,21,'2024-09-03 06:18:17','novedad 2','se entro ladron en la madrugada pero no se llevo nada','A'),(3,21,'2024-09-03 06:51:18','casa  302 sola','la desocuoaron ','A'),(4,21,'2024-09-03 07:00:04','ruptura agua','1234','A'),(5,21,'2024-09-03 08:39:36','REPORTE 45','SE DAÑO LA SALA DE BODEGA','I'),(6,21,'2024-09-04 12:47:02','Daño matera','Se partió','A'),(7,21,'2024-09-04 12:48:32','Matera rota','Se cayó','A'),(8,21,'2024-09-04 15:09:31','Baldosa rota','Se  quebró','A'),(9,21,'2024-09-04 20:42:56','Estoy cansado','Ya casitooo','A'),(10,21,'2024-09-05 16:35:16','Se daño el telecomunicador','Se ma cayó y chao','A');
 /*!40000 ALTER TABLE `novedadesvigilante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,8 +217,9 @@ CREATE TABLE `pago` (
   `cantidad` varchar(45) NOT NULL,
   `concepto` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
+  `estado` varchar(45) NOT NULL DEFAULT 'P',
   PRIMARY KEY (`idpago`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +228,7 @@ CREATE TABLE `pago` (
 
 LOCK TABLES `pago` WRITE;
 /*!40000 ALTER TABLE `pago` DISABLE KEYS */;
-INSERT INTO `pago` VALUES (19,'kljhkjlkl','lkjlk','lkjlkj'),(20,'asdsad','asdsa','asdsa'),(21,'8987','jhhkjh','kjhkjh'),(22,'asdas','asdasd','asdas'),(23,'2323','asds','asdas'),(24,'2323','asds','asdas'),(25,'2323','asds','asdas'),(26,'2323','asds','asdas'),(27,'2323','asds','asdas'),(28,'asd','asd','123412'),(29,'kjlkj','lkjlkj','lkjlkj'),(30,'klkjlkj','lkjlkj','lkjlkj'),(31,'1500','administracion','lorena'),(32,'1500','administracion','lorena'),(33,'1500','administracion','lorena');
+INSERT INTO `pago` VALUES (34,'120.000','Agua','Alejo','P'),(35,'120.000','Arreglo Tuberias','Alejo','P'),(36,'340.000','Pagar Matera','Alejandro','P'),(37,'128.000','Arreglo electrico','Alejandro','P');
 /*!40000 ALTER TABLE `pago` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -263,10 +268,11 @@ CREATE TABLE `quejasypeticiones` (
   `fecha` date NOT NULL,
   `asunto` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `peticion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `estado` varchar(45) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'A',
   PRIMARY KEY (`id_queja`),
   KEY `id_usuario` (`id_usuario`),
   CONSTRAINT `quejasypeticiones_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -275,7 +281,7 @@ CREATE TABLE `quejasypeticiones` (
 
 LOCK TABLES `quejasypeticiones` WRITE;
 /*!40000 ALTER TABLE `quejasypeticiones` DISABLE KEYS */;
-INSERT INTO `quejasypeticiones` VALUES (2,1,'2024-08-12','hola','jhkjkjhkjh'),(4,1,'2024-01-01','1','1');
+INSERT INTO `quejasypeticiones` VALUES (2,1,'2024-08-12','Daño Tuberia','Se daño la tuberia del baño','I'),(4,1,'2024-01-01','Trasteo','Solicito trasteo para el sabado','A'),(5,20,'2024-09-05','Necesito un Cerrajero','Me quedé sin llaves','A');
 /*!40000 ALTER TABLE `quejasypeticiones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,16 +297,16 @@ CREATE TABLE `reservas` (
   `fecha` date NOT NULL,
   `id_usuario` int NOT NULL,
   `id_area` int NOT NULL,
-  `nombre` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `casa` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `horario` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `contacto` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `casa` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `horario` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `contacto` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_reservas`),
   KEY `id_usuario` (`id_usuario`),
   KEY `id_area` (`id_area`),
-  CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_area`) REFERENCES `areas comunes` (`id_area`),
+  CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_area`) REFERENCES `areas_comunes` (`id_area`),
   CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -309,7 +315,7 @@ CREATE TABLE `reservas` (
 
 LOCK TABLES `reservas` WRITE;
 /*!40000 ALTER TABLE `reservas` DISABLE KEYS */;
-INSERT INTO `reservas` VALUES (1,'2024-09-03',20,1,'leo','101','10','3108113034'),(2,'2024-09-04',20,1,'martha','102','10','3108113035'),(4,'2024-09-05',20,4,'martha','104','5','123'),(5,'2024-09-02',20,3,'paco','455','1','969'),(6,'2024-09-02',20,2,'junita','123','5','3108512'),(7,'2024-09-05',20,1,'ALEJANDRO','458','5','3151');
+INSERT INTO `reservas` VALUES (9,'2024-09-05',20,2,'Alejandro','301','32153452345','12:20'),(10,'2024-09-13',20,1,'Alejandro','301','3124567898','12:45'),(11,'2024-09-13',20,3,'Alejandro','708','3214567834','12:45');
 /*!40000 ALTER TABLE `reservas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,7 +367,7 @@ CREATE TABLE `usuarios` (
   `Vigilante` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `id_usuario_UNIQUE` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -370,7 +376,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'jack','1234312','@gmail.com','aasdfdw','','3','203',NULL,NULL,NULL),(2,'jack','1234312','asd@gmail.com','1234','','3','203',NULL,NULL,NULL),(3,'bob','12312','@gmail','asdsa','jax','3','3',NULL,NULL,NULL),(6,'bob','12312','@gmailsafd','asdsa','jax','3','3',NULL,NULL,NULL),(8,'asfasfas','asfas','asfas','asfas','asfasasf','asfas','asfasfsa',NULL,NULL,NULL),(11,'bob','12312','@gmailsajfd','asdsa','jax','3','3','true',NULL,NULL),(13,'afasfsd','sdfsdf','sdfsd','sdfsd','sdfsd','sddfsd','sdfsd','1',NULL,NULL),(15,'poioi','poipi','poipoip','piopi','poipoi098','8908','09808','1',NULL,NULL),(17,'olkj','lkjlkj','lkj','kjlkj','lkjlkj','lkjlk','lkj','1',NULL,NULL),(18,'olkj','lkjlkj','lkj','kjlkj','lkjlkj','lkjlk','lkj','1',NULL,NULL),(19,'asdsa','asdasd','asdasd','1234','leo','1234','asdasd','1',NULL,NULL),(20,'ñlkñlk','ñlkñlk','lkjñlkj','1234','cris','lkjlkj','lñkjlñkjl',NULL,'1',NULL),(21,'LEYDER','31081154','jhkjhhjk','1234','ley',NULL,NULL,NULL,NULL,'1'),(22,'Juan','12321','@asdas','1234','juan',NULL,NULL,NULL,NULL,'1'),(23,'bob','12312','@gmailsajfd','asdsa','jax','3','3','true',NULL,NULL);
+INSERT INTO `usuarios` VALUES (1,'jack','1234312','@gmail.com','aasdfdw','','3','203',NULL,NULL,NULL),(2,'jack','1234312','asd@gmail.com','1234','','3','203',NULL,NULL,NULL),(3,'bob','12312','@gmail','asdsa','jax','3','3',NULL,NULL,NULL),(6,'bob','12312','@gmailsafd','asdsa','jax','3','3',NULL,NULL,NULL),(8,'asfasfas','asfas','asfas','asfas','asfasasf','asfas','asfasfsa',NULL,NULL,NULL),(11,'bob','12312','@gmailsajfd','asdsa','jax','3','3','true',NULL,NULL),(13,'afasfsd','sdfsdf','sdfsd','sdfsd','sdfsd','sddfsd','sdfsd','1',NULL,NULL),(15,'poioi','poipi','poipoip','piopi','poipoi098','8908','09808','1',NULL,NULL),(17,'olkj','lkjlkj','lkj','kjlkj','lkjlkj','lkjlk','lkj','1',NULL,NULL),(18,'olkj','lkjlkj','lkj','kjlkj','lkjlkj','lkjlk','lkj','1',NULL,NULL),(19,'Alejo','asdasd','asdasd','1234','Alejo','1234','asdasd','1',NULL,NULL),(20,'Alejandro','ñlkñlk','lkjñlkj','1234','Alejandro','lkjlkj','lñkjlñkjl',NULL,'1',NULL),(21,'LEYDER','31081154','jhkjhhjk','1234','ley',NULL,NULL,NULL,NULL,'1'),(22,'Juan','12321','@asdas','1234','juan',NULL,NULL,NULL,NULL,'1'),(23,'bob','12312','@gmailsajfd','asdsa','jax','3','3','true',NULL,NULL),(24,'David','2351235','@mail','awfasdf','Lex','23','201',NULL,'1',NULL),(25,'','','','','',NULL,NULL,NULL,NULL,'1'),(30,'x','','','','',NULL,NULL,NULL,NULL,'1'),(31,'Cristian','12341234','@hotmail','cris','cris','23','12',NULL,'1',NULL),(32,'Juan Pérez','555-1234','juan.perez@example.com','password123','juanperez','Torre 1','Apt 101','No','Yes','No'),(33,'María Gómez','555-5678','maria.gomez@example.com','pass4567','mariag','Torre 2','Apt 202','Yes','No','No'),(34,'Carlos Díaz','555-9876','carlos.diaz@example.com','secret789','carlosd','Torre 3','Apt 303','No','Yes','No'),(35,'Ana López','555-6543','ana.lopez@example.com','mypassword','analopez','Torre 4','Apt 404','No','No','Yes'),(36,'Luis Fernández','555-4321','luis.fernandez@example.com','luispass','luisf','Torre 5','Apt 505','Yes','No','No'),(37,'Juan Pérez','555-1234','juan.perez@example.com','password123','juanperez','Torre 1','Apt 101','No','Yes','No'),(38,'María Gómez','555-5678','maria.gomez@example.com','pass4567','mariag','Torre 2','Apt 202','Yes','No','No'),(39,'Carlos Díaz','555-9876','carlos.diaz@example.com','secret789','carlosd','Torre 3','Apt 303','No','Yes','No'),(40,'Ana López','555-6543','ana.lopez@example.com','mypassword','analopez','Torre 4','Apt 404','No','No','Yes'),(41,'Luis Fernández','555-4321','luis.fernandez@example.com','luispass','luisf','Torre 5','Apt 505','Yes','No','No'),(42,'Cristian','32142344','hola@hotmail.com','asdfaffds','Cris','2','301',NULL,'1',NULL),(43,'Pedro','321123512','pedro@gmail.com','asdfasdf','Ped',NULL,NULL,NULL,NULL,'1'),(44,'Francisco','321452453','fran@hotmail.com','asdfsad','Fran',NULL,NULL,NULL,NULL,'1'),(45,'Alf','134564634','alfred@gmail.com','asdfsdg','Alfff','3','801',NULL,'1',NULL),(46,'Leyder','2342123443','ley@gmail.com','asdfdsf','Leyy',NULL,NULL,NULL,NULL,'1'),(47,'Roberto','3123456743','Roberto@hotmail.com','Robertoxd','Robert','3','805','1',NULL,NULL),(48,'Maycol','3456784356','mike@gmail.com','0987','Mike','5','908',NULL,'1',NULL),(49,'Reynaldo','3124567894','Rey@hotmail.com','0987','Rey',NULL,NULL,NULL,NULL,'1');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -395,7 +401,7 @@ CREATE TABLE `visitante` (
   UNIQUE KEY `docIdentidad_UNIQUE` (`docIdentidad`),
   KEY `id_usuario` (`id_visitante`),
   CONSTRAINT `visitante_ibfk_1` FOREIGN KEY (`id_visitante`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -404,7 +410,7 @@ CREATE TABLE `visitante` (
 
 LOCK TABLES `visitante` WRITE;
 /*!40000 ALTER TABLE `visitante` DISABLE KEYS */;
-INSERT INTO `visitante` VALUES (6,'aiil','2003-07-06','12:00','6476476','765764764','5','601','hgkfkjlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk kkhkjh','0'),(8,'jhkjhkjh','2024-08-14','12:12','kjhkjh','nbnbkjb','kjhkjh','kjhkjh','kjhjhkjh','1'),(11,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'0'),(13,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'false'),(15,'CRISTIAN SUESCA','2024-09-03','10:10','12345','1018523','1','1','VISITA CLARITA',NULL),(21,'a','2024-09-02','2:2','a','1','1','1','ana',NULL);
+INSERT INTO `visitante` VALUES (30,'Gerardo','2024-09-05','12:45','3144365466','1234123423','1','401','Visitar a mi tia','true'),(31,'Ryan','2024-09-04','12:43','122345345','12342343','2','301','Visitar al abuelo','true'),(32,'Ronald','2024-09-04','2:23','3123413232','1552132345','3','301','Arreglar la cocina','false'),(33,'Anny','2024-09-05','15:53','3124456875','123456784','3','901','Arreglar paredes','false');
 /*!40000 ALTER TABLE `visitante` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -417,4 +423,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-03  8:53:07
+-- Dump completed on 2024-09-05 17:11:27

@@ -83,13 +83,13 @@ public class RegistroMascotasAdminController {
 
     private void mostrarDetalles(String nombreMascota) {
         DbConnection connection = new DbConnection();
-        String query = "SELECT * FROM mascotas WHERE nombre = '" + nombreMascota + "'";
+        String query = "SELECT mascotas.nombre AS nombreM, mascotas.raza AS raza,  usuarios.nombre AS id_usuario, mascotas.casa_o_apto, mascotas.perdido FROM mascotas INNER JOIN usuarios ON mascotas.id_usuario = usuarios.id_usuario WHERE mascotas.nombre = '" + nombreMascota + "' ";
         try {
             ResultSet resultSet = connection.getQueryTable(query);
             if (resultSet != null && resultSet.next()) {
-                String detalles = "Nombre: " + resultSet.getString("nombre") + "\n" +
+                String detalles = "Nombre: " + resultSet.getString("nombreM") + "\n" +
                         "Raza: " + resultSet.getString("raza") + "\n" +
-                        "ID Usuario: " + resultSet.getString("id_usuario") + "\n" +
+                        "Nombre Usuario: " + resultSet.getString("id_usuario") + "\n" +
                         "Casa/Apartamento: " + resultSet.getString("casa_o_apto") + "\n" +
                         "Estado Perdido: " + (resultSet.getBoolean("perdido") ? "Sí" : "No");
                 textAreaDetallesMascota.setText(detalles);

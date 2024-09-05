@@ -87,8 +87,8 @@ public class ListadosPagosController {
             if (resultSet != null && resultSet.next()) {
                 String detalles = "CONCEPTO: " + resultSet.getString("concepto") + "\n" +
                         "PAGO: " + resultSet.getString("cantidad") + "\n" +
-                        "ID Usuario: " + resultSet.getString("username") + "\n" +
-                        "Casa/Apartamento: " + resultSet.getString("estado");
+                        "Username: " + resultSet.getString("username") + "\n" +
+                        "Estado: " + resultSet.getString("estado");
                 textAreaDetallesMascota.setText(detalles);
             }
         } catch (SQLException e) {

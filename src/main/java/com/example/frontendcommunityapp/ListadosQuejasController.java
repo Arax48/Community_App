@@ -83,14 +83,14 @@ public class ListadosQuejasController {
 
     private void mostrarDetalles(String nombreMascota) {
         DbConnection connection = new DbConnection();
-        String query = "SELECT * FROM quejasypeticiones WHERE asunto = '" + nombreMascota + "'";
+        String query = "SELECT quejasypeticiones.asunto AS asunto, quejasypeticiones.peticion AS peticion, usuarios.nombre AS id_usuario, quejasypeticiones.estado FROM quejasypeticiones INNER JOIN usuarios ON quejasypeticiones.id_usuario = usuarios.id_usuario WHERE asunto = '" + nombreMascota + "' ";
         try {
             ResultSet resultSet = connection.getQueryTable(query);
             if (resultSet != null && resultSet.next()) {
-                String detalles = "Nombre: " + resultSet.getString("asunto") + "\n" +
-                        "Raza: " + resultSet.getString("peticion") + "\n" +
-                        "ID Usuario: " + resultSet.getString("id_Usuario") + "\n" +
-                        "Casa/Apartamento: " + resultSet.getString("estado");
+                String detalles = "Asunto: " + resultSet.getString("asunto") + "\n" +
+                        "Peticion: " + resultSet.getString("peticion") + "\n" +
+                        "Nombre Residente: " + resultSet.getString("id_Usuario") + "\n" +
+                        "Estado: " + resultSet.getString("estado");
                 textAreaDetallesMascota.setText(detalles);
             }
         } catch (SQLException e) {

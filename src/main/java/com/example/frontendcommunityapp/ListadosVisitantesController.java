@@ -47,7 +47,8 @@ public class ListadosVisitantesController {
             ResultSet resultSet = connection.getQueryTable(query);
             while (resultSet != null && resultSet.next()) {
                 String nombre = resultSet.getString("nombre");
-                String isAdentro = resultSet.getString("isAdentro");
+                //String isAdentro = resultSet.getString("isAdentro");
+                String isAdentro = "en el conjunto?: " + (resultSet.getBoolean("isAdentro") ? "Sí" : "No");
                 listViewMascotas.getItems().add(nombre + " - " + isAdentro);
             }
         } catch (SQLException e) {
@@ -57,13 +58,13 @@ public class ListadosVisitantesController {
 
     private void cargarMascotasPerdidas() {
         DbConnection connection = new DbConnection();
-        String query = "SELECT nombre, isAdentro FROM visitante WHERE isAdentro = 1";
+        String query = "SELECT nombre, isAdentro FROM visitante WHERE isAdentro = '"+true+"' ";
         try {
             ResultSet resultSet = connection.getQueryTable(query);
             StringBuilder mascotasPerdidas = new StringBuilder();
             while (resultSet != null && resultSet.next()) {
                 String nombre = resultSet.getString("nombre");
-                String isAdentro = resultSet.getString("isAdentro");
+                String isAdentro = "en el conjunto?: " + (resultSet.getBoolean("isAdentro") ? "Sí" : "No");
                 mascotasPerdidas.append(nombre).append(" - ").append(isAdentro).append("\n");
             }
             textAreaMascotasPerdidas.setText(mascotasPerdidas.toString());
@@ -83,15 +84,15 @@ public class ListadosVisitantesController {
 
     private void mostrarDetalles(String nombreMascota) {
         DbConnection connection = new DbConnection();
-        String query = "SELECT * FROM visitante WHERE nombre = '" + nombreMascota + "'";
+        String query = "SELECT visitante.nombre AS nombreP, visitante.fecha AS fecha, usuarios.nombre AS id_visitante, visitante.proposito AS proposito, visitante.isAdentro AS isAdentro FROM visitante INNER JOIN usuarios ON visitante.id_visitante = usuarios.id_usuario WHERE visitante.nombre = '" + nombreMascota + "'";
         try {
             ResultSet resultSet = connection.getQueryTable(query);
             if (resultSet != null && resultSet.next()) {
-                String detalles = "Nombre: " + resultSet.getString("nombre") + "\n" +
+                String detalles = "Nombre: " + resultSet.getString("nombreP") + "\n" +
                         "Fecha: " + resultSet.getString("fecha") + "\n" +
-                        "ID Usuario: " + resultSet.getString("id_visitante") + "\n" +
+                        "Persona que registra: " + resultSet.getString("id_visitante") + "\n" +
                         "proposito: " + resultSet.getString("proposito") + "\n" +
-                        "en el conjunto?: " + (resultSet.getBoolean("isAdentro") ? "Sí" : "No");
+                        "En el conjunto?: " + (resultSet.getBoolean("isAdentro") ? "Sí" : "No");
                 textAreaDetallesMascota.setText(detalles);
             }
         } catch (SQLException e) {
