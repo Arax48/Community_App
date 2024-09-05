@@ -1,4 +1,4 @@
-# Community App
+![image](https://github.com/user-attachments/assets/40e82025-c651-4416-90bd-2e2550df91d0)# Community App
 ## Descripción
 CommunityApp es una aplicación que permite optimizar los procesos de comunicación en zonas residenciales como apartamentos, conjuntos y demás entidades que se puedan considerar una comunidad.
 
@@ -18,6 +18,9 @@ CommunityApp es una aplicación que permite optimizar los procesos de comunicaci
 ![image](https://github.com/user-attachments/assets/d7747804-d5d2-403e-b838-9bfa8e08e26c)
 
 ### Diagramas de casos de uso
+![image](https://github.com/user-attachments/assets/53d0853c-f2d6-459d-b8d6-5c434362d451)
+![image](https://github.com/user-attachments/assets/f40943bc-c08a-41ae-b1e8-b0b80ef4a59f)
+![image](https://github.com/user-attachments/assets/eb80b42f-ab17-4853-b1dd-c77821da98b8)
 
 
 ### Diagramas de casos de uso detallados
@@ -25,7 +28,7 @@ CommunityApp es una aplicación que permite optimizar los procesos de comunicaci
 ### Diagramas de secuencia
 
 
-
+ 
 ## Flujo de uso de la App
 
 ### Rol Administrador
