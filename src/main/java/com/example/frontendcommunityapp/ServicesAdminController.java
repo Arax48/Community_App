@@ -223,6 +223,24 @@ public class ServicesAdminController {
     }
 
     @FXML
+    private void switchToListadosPagoPage(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ListadosPagos.fxml"));
+            root = loader.load();
+
+            ListadosPagosController controller = loader.getController();
+
+
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     private void switchToListadosVisitantesPage(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ListadosVisitantes.fxml"));
