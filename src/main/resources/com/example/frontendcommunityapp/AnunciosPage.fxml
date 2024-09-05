@@ -8,7 +8,7 @@
         <Label alignment="CENTER" layoutX="0.0" layoutY="10.0" prefWidth="400.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: 'Arial'; -fx-padding: 10px; -fx-background-color: #a8afb5; -fx-border-color: #ccc; -fx-border-radius: 5px; -fx-background-radius: 5px;" styleClass="titulo" text="Anuncio" textAlignment="CENTER" />
 
         <Label layoutX="20.0" layoutY="110.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" styleClass="label" text="ID Admin:" />
-        <TextField fx:id="idAdmin1" layoutX="150.0" layoutY="110.0" styleClass="mascotas-form" disable="true"/>
+        <TextField fx:id="idAdmin1" layoutX="150.0" layoutY="110.0" styleClass="mascotas-form" disable="false"/>
 
         <Label layoutX="20.0" layoutY="150.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" styleClass="label" text="Fecha:" />
         <TextField fx:id="fechaField" layoutX="150.0" layoutY="150.0" promptText="YYYY-MM-DD" styleClass="mascotas-form" disable="true" />
@@ -22,6 +22,6 @@
         <Button layoutX="150.0" layoutY="330.0" onAction="#registrarAnuncio" style="-fx-text-fill: black; -fx-background-color: #a8afb5; -fx-font-weight: bold; -fx-pref-width: 150; -fx-pref-height: 40;" text="Anuncio" />
         <Button layoutX="150.0" layoutY="384.0" onAction="#volverAServiciosAdmin" prefHeight="25.0" style="-fx-text-fill: black; -fx-background-color: #a8afb5; -fx-font-weight: bold; -fx-pref-width: 100; -fx-pref-height: 30;" text="Atrás" />
       <Label layoutX="20.0" layoutY="71.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" styleClass="label" text="Nombre" />
-      <TextField fx:id="nombreAdmin" layoutX="150.0" layoutY="71.0" styleClass="mascotas-form" disable="true"/>
+      <TextField fx:id="nombreAdmin" layoutX="150.0" layoutY="71.0" styleClass="mascotas-form" disable="false"/>
     </children>
 </AnchorPane>

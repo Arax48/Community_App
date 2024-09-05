@@ -29,10 +29,7 @@ public class ServicesAdminController {
     @FXML
     private Label idAdmin;
 
-    public void setAdminDetails(String name, int idUsuario) {
-        bienvenidaAdmin.setText(name);
-        idAdmin.setText(String.valueOf(idUsuario));
-    }
+
 
     public void switchToPagosPage(ActionEvent actionEvent) {
         try {
@@ -97,7 +94,7 @@ public class ServicesAdminController {
 
             // Obtener el controlador de la vista NovedadesVigilante.fxml
             AnunciosPageController controller = loader.getController();
-            controller.setAdminDetails(bienvenidaAdmin.getText(), Integer.parseInt(idAdmin.getText()));
+           // controller.setAdminDetails(bienvenidaAdmin.getText(), Integer.parseInt(idAdmin.getText()));
 
             // Cambiar la escena a NovedadesVigilante.fxml
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -199,8 +196,8 @@ public class ServicesAdminController {
             root = loader.load();
 
             ListadosAnunciosController controller = loader.getController();
-            List<Anuncio> listaAnuncios = Anuncio.obtenerTodosLosAnuncios();
-            controller.mostrarListaAnuncios(listaAnuncios);
+
+
 
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);

@@ -14,5 +14,6 @@
 
         <Label text="Detalles de la Mascota" layoutX="14.0" layoutY="260.0" />
         <TextArea fx:id="textAreaDetallesMascota" layoutX="14.0" layoutY="280.0" prefHeight="100.0" prefWidth="636.0" editable="false" />
+        <Button fx:id="backButton" layoutX="14.0" layoutY="470.0" onAction="#handleBackButtonAction" text="Regresar" />
     </children>
 </AnchorPane>

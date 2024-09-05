@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class DbConnection {
 
-    private final String dbUrl = "jdbc:mysql://localhost:3306/communityappdb";
-    private final String userName = "silvana";
-    private final String password = "";
+    private final String dbUrl = "jdbc:mysql://localhost:3306/community";
+    private final String userName = "root";
+    private final String password = "1234";
 
     // Método para establecer la conexión a la base de datos
     public Connection connect() {

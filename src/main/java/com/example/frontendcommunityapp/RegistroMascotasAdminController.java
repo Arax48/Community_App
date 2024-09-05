@@ -3,6 +3,7 @@ package com.example.frontendcommunityapp;
 import com.example.frontendcommunityapp.Model.Services.RegistroMascotas;
 import com.example.frontendcommunityapp.Controller.DbConnection;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
@@ -11,6 +12,7 @@ import javafx.scene.control.SelectionModel;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -94,6 +96,25 @@ public class RegistroMascotasAdminController {
             }
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Error al cargar los detalles de la mascota.", e);
+        }
+    }
+
+    @FXML
+    private void handleBackButtonAction() {
+        try {
+            // Cargar la vista de ServicesAdmin.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesAdmin.fxml"));
+            Parent root = loader.load();
+
+            // Obtener el escenario actual
+            Stage stage = (Stage) listViewMascotas.getScene().getWindow();
+
+            // Cambiar la escena
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
