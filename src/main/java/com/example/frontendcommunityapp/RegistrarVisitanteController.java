@@ -212,11 +212,17 @@ public class RegistrarVisitanteController {
 
     }
 
-    public void registrarSalidaEntrada1(ActionEvent event) {
-        String doc = confirmacionSaEn.getText();
-        boolean salio = salida.isSelected();
-        boolean entro = entrada.isSelected();
 
+
+
+
+    public void registrarSalidaEntrada1(ActionEvent event) {
+
+
+        String doc = confirmacionSaEn.getText();
+        //boolean salio = salida.isSelected();
+        boolean entro = entrada.isSelected();
+        String query1 ="";
         //String query1 = "UPDATE visitante SET isAdentro = '"+entro+"' WHERE docIdentidad= '"+ doc +"' ";
         //String query2 = "UPDATE visitante SET isAdentro = 'salio' WHERE docIdentidad= '"+ doc +"' ";
         DbConnection connection = new DbConnection();
@@ -224,26 +230,27 @@ public class RegistrarVisitanteController {
         try {
 
             if(entro){
-                String query1 = "UPDATE visitante SET isAdentro = '"+entro+"' WHERE docIdentidad= '"+ doc +"' ";
+                 query1 = "UPDATE visitante SET isAdentro = '"+entro+"' WHERE docIdentidad= '"+ doc +"' ";
                 //String query2 = "UPDATE visitante SET isAdentro = 'salio' WHERE docIdentidad= '"+ doc +"' ";
                 //DbConnection connection = new DbConnection();
-                int rs = connection.updateDataBase(query1);
+
                 confirmacionSaEn.setText("Entrada Registrada");
-            }
-            else {
-                String query2 = "UPDATE visitante SET isAdentro = '"+salio+"' WHERE docIdentidad= '"+ doc +"' ";
+            } else {
+                 query1 = "UPDATE visitante SET isAdentro = '"+entro+"' WHERE docIdentidad= '"+ doc +"' ";
                 //String query2 = "UPDATE visitante SET isAdentro = 'salio' WHERE docIdentidad= '"+ doc +"' ";
                 //DbConnection connection = new DbConnection();
-                int rs = connection.updateDataBase(query2);
+               // int rs = connection.updateDataBase(query1);
                 confirmacionSaEn.setText("Salida Registrada");
             }
+
+
 
 
         }catch (Exception e){
             e.printStackTrace();
         }
 
-
+        int rs = connection.updateDataBase(query1);
 
 
     }
