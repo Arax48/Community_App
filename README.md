@@ -1,9 +1,11 @@
 # Community App
 ## Descripción
+CommunityApp es una aplicación que permite optimizar los procesos de comunicación en zonas residenciales como apartamentos, conjuntos y demás entidades que se puedan considerar una comunidad.
 
 ## Características
 
 ## Diagramas
+
 
 ## Flujo de uso de la App
 
@@ -88,12 +90,77 @@
 
 
 ### Rol Residente
-1. Todo usuario Residente creado por Admin con su función registro ingresa con sus credenciales por el login
+1. Todo usuario Residente creado por Admin con su función registro, ingresa con sus credenciales por el login
 2. Aparece su página de servicios que luce de esta manera:
 3. ![image](https://github.com/user-attachments/assets/8d3f6d7d-e338-4344-b0f5-d8e9154d8622)
 - Servicios
      1. Notificaciones permite al residente ver los anuncios que el Administrador ha publicado con sus detalles, entre ellos, el nombre del Admin que lo efectuó:
      ![image](https://github.com/user-attachments/assets/7246ed75-195a-4f52-ab9f-a1195d356236)
+
+     2. Realizar Pagos le permite al residente realizar un Pago.
+    ![image](https://github.com/user-attachments/assets/2274cbb8-92e2-44f7-a8ab-185b9ff7b40b)
+
+     3. Reservar areas comunes le permite al residente reservar el area comun de su preferencia:
+     ![image](https://github.com/user-attachments/assets/66f7427e-a30a-472c-b11c-5f00108c2558)
+         3.1 El residente escoje y se le lleva a un formulario de reserva:
+        ![image](https://github.com/user-attachments/assets/ad5493f3-e463-41f8-a368-c21639ae779b)
+         3.2 Se le solicitan los datos y se confirma registro de reserva:
+        ![image](https://github.com/user-attachments/assets/8f1d4baf-d6a7-45ad-b273-b8f858129d74)
+        3.3 El registro queda efectuado para posterior verificación
+
+    4. Registro Mascotas permite al residente registrar una Mascota, sea que este perdida o no:
+   ![image](https://github.com/user-attachments/assets/1076b520-3f45-4388-89ff-77cb1d642615)
+![image](https://github.com/user-attachments/assets/bf719158-f213-4503-bebb-bc0685926091)
+
+   5. Peticiones y Quejas permite al residente enviar al Admin alguna queja o petición para ser trabajada, se muestra un formulario con los datos a ingresar(Automaticamente proporciona la fecha actual):
+  ![image](https://github.com/user-attachments/assets/b8a4094d-f72b-44d6-a78a-eaadc48549a0)
+   Se muestra mensaje de confirmación
+   ![image](https://github.com/user-attachments/assets/a07ade77-efea-444b-85d1-f424ad74ab08)
+
+
+### Rol Vigilante
+1. Todo usuario Vigilante creado por Admin con su función registro, ingresa con sus credenciales por el login.
+2. Aparece su página de servicios que luce de esta manera(Con su nombre y su ID):
+3. ![image](https://github.com/user-attachments/assets/a32a6597-6bf0-4ba6-ae2d-cc7497ca64d5)
+
+- Servicios
+  1. Registrar Visitante le permite al Vigilante registrar un visitante nuevo, verificar si ya fue registrado o marcar entrada o salida:
+  ![image](https://github.com/user-attachments/assets/06407f20-210e-46b5-9f0b-8b706e1e32ba)
+  1.1 Para visitante nuevo se digitan los campos y al dar registrar se registra con su mensaje de confirmación:
+     ![image](https://github.com/user-attachments/assets/fbe29ae5-943f-4175-b25c-a48a0d5f29c1)
+     1.1.1 Y dependiendo si el usuario entra o sale, en el apartado de "Marcar Salida" o "Marcar Entrada" se digita el documento del visitante y se confirma salida o entrada presionando el botón "oprima":
+     ![image](https://github.com/user-attachments/assets/3d0851ad-71f7-4f76-ad7f-6cd8e416082b)
+   1.1.2 Finalmente antes de registrar el usuario el vigilante puede verificar si ya está registrado en el apartado de verificar, ingresa el documento del visitante y el sistema lo verifica:
+     ![image](https://github.com/user-attachments/assets/ee1bb65a-6c83-49b3-aaa2-f7361ad7b1a6)
+
+  2. Reportar Novedad permite al vigilante reportar al administrador cualquier novedad, mediante el siguiente formulario(De manera predeterminada llena campos de nombre e ID del vigilante que está con su sesión en marcha):
+  ![image](https://github.com/user-attachments/assets/545c2e1c-3ca4-4cf1-a8bb-4dcf872ad47f)
+Confirma la recepción de la novedad:
+![image](https://github.com/user-attachments/assets/b82d329a-4722-4a35-9daf-062ece79c5c0)
+
+
+     
+
+
+
+      
+
+
+
+      
+
+
+   
+
+
+
+        
+
+
+        
+
+
+     
 
 
 
