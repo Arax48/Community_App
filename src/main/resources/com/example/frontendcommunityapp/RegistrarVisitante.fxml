@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.RegistrarVisitanteController">
+<AnchorPane prefHeight="534.0" prefWidth="552.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.RegistrarVisitanteController">
     <children>
-        <AnchorPane prefHeight="82.0" prefWidth="520.0" style="-fx-background-color: #246861;">
+        <AnchorPane layoutY="-1.0" prefHeight="82.0" prefWidth="552.0" style="-fx-background-color: #246861;">
             <children>
                 <ImageView fitHeight="42.0" fitWidth="69.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -31,63 +31,72 @@
                </font>
             </Label>
             </children></AnchorPane>
-        <Label layoutX="59.0" layoutY="109.0" text="Nombre">
+        <Label layoutX="59.0" layoutY="97.0" text="Nombre">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="textFieldNombre" layoutX="59.0" layoutY="129.0" />
-        <Label layoutX="59.0" layoutY="188.0" text="Telefono">
+        <TextField fx:id="textFieldNombre" layoutX="59.0" layoutY="117.0" />
+        <Label layoutX="59.0" layoutY="152.0" text="Telefono">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="textFieldTelefono" layoutX="59.0" layoutY="208.0" />
-        <Label layoutX="298.0" layoutY="99.0" text="Numero de Torre">
+        <TextField fx:id="textFieldTelefono" layoutX="59.0" layoutY="172.0" />
+        <Label layoutX="339.0" layoutY="94.0" text="Numero de Torre">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="textFieldTorre" layoutX="298.0" layoutY="119.0" />
-        <Label layoutX="298.0" layoutY="154.0" text="Numero de Apto">
+        <TextField fx:id="textFieldTorre" layoutX="339.0" layoutY="114.0" />
+        <Label layoutX="339.0" layoutY="149.0" text="Numero de Apto">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="textFieldApto" layoutX="298.0" layoutY="174.0" />
-        <Button fx:id="buttonRegistrar" layoutX="222.0" layoutY="444.0" mnemonicParsing="false" onAction="#registrarVisitante" prefHeight="42.0" prefWidth="76.0" text="Registrar" />
-      <Label layoutX="298.0" layoutY="210.0" text="Doc. Identidad">
+        <TextField fx:id="textFieldApto" layoutX="339.0" layoutY="169.0" />
+        <Button fx:id="buttonRegistrar" layoutX="385.0" layoutY="435.0" mnemonicParsing="false" onAction="#registrarVisitante" prefHeight="42.0" prefWidth="107.0" text="Registrar usuario" />
+      <Label layoutX="339.0" layoutY="205.0" text="Doc. Identidad">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldId" layoutX="298.0" layoutY="230.0" />
-      <Label layoutX="122.0" layoutY="267.0" prefHeight="20.0" prefWidth="105.0" text="Propósito Visita">
+      <TextField fx:id="textFieldId" layoutX="339.0" layoutY="225.0" />
+      <Label layoutX="120.0" layoutY="205.0" prefHeight="20.0" prefWidth="105.0" text="Propósito Visita">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextArea fx:id="tfTextArea1" layoutX="25.0" layoutY="287.0" prefHeight="144.0" prefWidth="299.0" />
+      <TextArea fx:id="tfTextArea1" layoutX="23.0" layoutY="225.0" prefHeight="144.0" prefWidth="299.0" />
       <DatePicker fx:id="datePicker" layoutX="332.0" layoutY="315.0" />
       <Label layoutX="372.0" layoutY="287.0" text="Fecha De Visita">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="367.0" layoutY="372.0" text="Hora" />
-      <Label layoutX="402.0" layoutY="347.0" prefHeight="25.0" prefWidth="34.0" text="Hora">
+      <Label layoutX="367.0" layoutY="371.0" text="Hora" />
+      <Label layoutX="402.0" layoutY="346.0" prefHeight="25.0" prefWidth="34.0" text="Hora">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="446.0" layoutY="372.0" text="Minuto" />
-      <TextField fx:id="tfHora" layoutX="349.0" layoutY="398.0" prefHeight="25.0" prefWidth="64.0" />
-      <TextField fx:id="tfMinuto" layoutX="433.0" layoutY="398.0" prefHeight="25.0" prefWidth="64.0" />
+      <Label layoutX="446.0" layoutY="371.0" text="Minuto" />
+      <TextField fx:id="tfHora" layoutX="349.0" layoutY="397.0" prefHeight="25.0" prefWidth="64.0" />
+      <TextField fx:id="tfMinuto" layoutX="433.0" layoutY="397.0" prefHeight="25.0" prefWidth="64.0" />
       <Label layoutX="419.0" layoutY="401.0" text=":">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="confirmacion" layoutX="331.0" layoutY="453.0" />
+      <TextField fx:id="confirmacion" layoutX="348.0" layoutY="492.0" />
+      <Label layoutX="23.0" layoutY="371.0" text="Verificar si usuario ya registrado" />
+      <TextField fx:id="docVisitante" layoutX="23.0" layoutY="419.0" promptText="DocumentoVisitante" />
+      <Label layoutX="23.0" layoutY="393.0" text="Digite Documento: " />
+      <CheckBox fx:id="salida" layoutX="23.0" layoutY="456.0" mnemonicParsing="false" text="Marcar Salida" />
+      <CheckBox fx:id="entrada" layoutX="23.0" layoutY="483.0" mnemonicParsing="false" text="Marcar Ingreso" />
+      <TextField fx:id="confirmacionSaEn" layoutX="23.0" layoutY="500.0" promptText="Ingrese Doc Usuario" />
+      <Button fx:id="Entrada1" layoutX="173.0" layoutY="499.0" mnemonicParsing="false" onAction="#registrarSalidaEntrada1" prefHeight="27.0" prefWidth="137.0" text="Oprima " />
+      <Button fx:id="verificarVisitante" layoutX="180.0" layoutY="389.0" mnemonicParsing="false" onAction="#estaRegistrado" prefHeight="25.0" prefWidth="107.0" text="Verificar visitante" />
+      <TextField fx:id="estadoRegistro" layoutX="173.0" layoutY="419.0" prefHeight="25.0" prefWidth="137.0" promptText="Estado de Registro" />
     </children>
 </AnchorPane>

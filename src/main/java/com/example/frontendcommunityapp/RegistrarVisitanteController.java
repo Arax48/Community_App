@@ -1,5 +1,6 @@
 package com.example.frontendcommunityapp;
 
+import com.example.frontendcommunityapp.Controller.DbConnection;
 import com.example.frontendcommunityapp.Model.Users.*;
 import javafx.event.ActionEvent;
 
@@ -18,6 +19,8 @@ import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class RegistrarVisitanteController {
@@ -70,6 +73,28 @@ public class RegistrarVisitanteController {
 
     @FXML
     private TextField confirmacion;
+
+    @FXML
+    private TextField docVisitante;
+
+    @FXML
+    private CheckBox salida;
+
+    @FXML
+    private CheckBox entrada;
+
+    @FXML
+    private TextField confirmacionSaEn;
+
+    @FXML
+    private Button SalidaEntrada;
+
+    @FXML
+    private Button verificarVisitante;
+
+    @FXML
+    private TextField estadoRegistro;
+
 
     public void setVigilanteDetails(String name, int idUsuario) {
         userLabelRegisVisi.setText(name);
@@ -163,5 +188,66 @@ public class RegistrarVisitanteController {
             alert.setContentText(message);
             alert.showAndWait();
         }
+
+    public void estaRegistrado(ActionEvent event) throws IOException, SQLException {
+            String doc = docVisitante.getText();
+            String query = "SELECT * FROM visitante WHERE docIdentidad= '" + doc + "' ";
+            DbConnection dbConnection = new DbConnection();
+        try (ResultSet rs = dbConnection.getQueryTable(query)) {
+            if (rs.next()) {
+                String registroDoc = rs.getString("docIdentidad"); // Use column name instead of index
+                if (registroDoc.equals(doc)) { // string comparison
+                    estadoRegistro.setText("Usuario registrado");
+                } else {
+                    estadoRegistro.setText("Usuario no registrado");
+                }
+            } else {
+                estadoRegistro.setText("Usuario no registrado");
+            }
+        }
+        catch (SQLException e) {
+        e.printStackTrace();
+        estadoRegistro.setText("Error al verificar registro");
+        }
+
     }
+
+    public void registrarSalidaEntrada1(ActionEvent event) {
+        String doc = confirmacionSaEn.getText();
+        boolean salio = salida.isSelected();
+        boolean entro = entrada.isSelected();
+
+        //String query1 = "UPDATE visitante SET isAdentro = '"+entro+"' WHERE docIdentidad= '"+ doc +"' ";
+        //String query2 = "UPDATE visitante SET isAdentro = 'salio' WHERE docIdentidad= '"+ doc +"' ";
+        DbConnection connection = new DbConnection();
+
+        try {
+
+            if(entro){
+                String query1 = "UPDATE visitante SET isAdentro = '"+entro+"' WHERE docIdentidad= '"+ doc +"' ";
+                //String query2 = "UPDATE visitante SET isAdentro = 'salio' WHERE docIdentidad= '"+ doc +"' ";
+                //DbConnection connection = new DbConnection();
+                int rs = connection.updateDataBase(query1);
+                confirmacionSaEn.setText("Entrada Registrada");
+            }
+            else {
+                String query2 = "UPDATE visitante SET isAdentro = '"+salio+"' WHERE docIdentidad= '"+ doc +"' ";
+                //String query2 = "UPDATE visitante SET isAdentro = 'salio' WHERE docIdentidad= '"+ doc +"' ";
+                //DbConnection connection = new DbConnection();
+                int rs = connection.updateDataBase(query2);
+                confirmacionSaEn.setText("Salida Registrada");
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+
+    }
+
+
+}
 

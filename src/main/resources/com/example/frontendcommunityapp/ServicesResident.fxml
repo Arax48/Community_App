@@ -53,11 +53,6 @@
                   </AnchorPane>
                   <AnchorPane layoutX="14.0" layoutY="221.0" prefHeight="213.0" prefWidth="210.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="145.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/Dollar.png" />
-                           </image>
-                        </ImageView>
                         <Button fx:id="buttonPagos" layoutX="25.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchToListadosAnunciosPage" prefHeight="48.0" prefWidth="150.0" styleClass="nav-btn" text="ANUNCIOS" />
                      </children>
                   </AnchorPane>

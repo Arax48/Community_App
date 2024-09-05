@@ -39,18 +39,18 @@ public class RegistroMascotasResidentController {
     private TextField messageVerifyRegister;
 
     @FXML
-    private TextField nombreResidentMascota;
+    private TextField nombreUsuario;
 
     @FXML
-    private TextField idResidentMascota;
+    private TextField idUsuarioMascotas;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     public void setResidentDetails(String name, int idUsuario) {
-        nombreResidentMascota.setText(name);
-        idResidentMascota.setText(String.valueOf(idUsuario));
+        nombreUsuario.setText(name);
+        idUsuarioMascotas.setText(String.valueOf(idUsuario));
     }
 
     public void setStage(Stage stage) {
@@ -59,7 +59,7 @@ public class RegistroMascotasResidentController {
 
     @FXML
     public void initialize() {
-        // Inicialización si es necesaria
+        // Inicialización
     }
 
     @FXML
@@ -102,6 +102,25 @@ public class RegistroMascotasResidentController {
 
     @FXML
     public void volver(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesResident.fxml"));
+            root = loader.load();
+
+            ServicesResidentController controller = loader.getController();
+            // Pasa los datos al controlador de ServicesVigilante
+            //controller.setResidentDetails(nombreUsuario.getText(), Integer.parseInt(idUsuarioMascotas.getText()));
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (NumberFormatException e) {
+            mostrarAlerta("Error", "ID de residente no válido.");
+        }
+
+        /*
         Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stageActual.close();
 
@@ -111,6 +130,16 @@ public class RegistroMascotasResidentController {
         Stage nuevoStage = new Stage();
         nuevoStage.setScene(scene);
         nuevoStage.show();
+
+         */
+    }
+
+    private void mostrarAlerta(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
     @FXML
     public void actualizarEstadoPerdido(ActionEvent actionEvent) {

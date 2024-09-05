@@ -70,9 +70,26 @@ public class RegisterController implements Initializable {
     @FXML
     private Button buttonRegistrar;
 
+    @FXML
+    private TextField confirmacion;
+
+    @FXML
+    private Label userRegister;
+
+    @FXML
+    private Label idRegister;
+
+
+
 
     private String[] usuarios = {"Admin", "Residente", "Vigilante"};
     boolean isSelected = false;
+
+
+    public void setAdminDetails(String name, int idUsuario) {
+        userRegister.setText(name);
+        idRegister.setText(String.valueOf(idUsuario));
+    }
 
 
     @Override
@@ -107,6 +124,8 @@ public class RegisterController implements Initializable {
 
                 createdAdmin.registrarAdminDB(nombre, telefono, email, pass, username, torre, apto);
                 System.out.println("Admin creado con éxtio");
+                confirmacion.setText("Usuario registrado");
+                errorMessage.setText("");
             }
             }
             else if (user == "Residente") {
@@ -119,9 +138,12 @@ public class RegisterController implements Initializable {
 
                 createdResident.registrarResidentDB(nombre, telefono, email, pass, username, torre, apto);
                 System.out.println("Residente creado con éxtio");
+                    confirmacion.setText("Usuario registrado");
+                    errorMessage.setText("");
+
             }
         } else if(user == "Vigilante") {
-            if (!torre.isEmpty() || !apto.isEmpty()) {
+            if (!apto.isEmpty()) {
                 errorMessage.setText("Vigilante no se le asocia torre y apto favor dejar los campos vacios");
             }  else {
                 Vigilante createdVigilante = new Vigilante(12, nombre,
@@ -129,6 +151,8 @@ public class RegisterController implements Initializable {
 
                 createdVigilante.registrarVigilanteDB(nombre, telefono, email, pass, username);
                 System.out.println("Vigilante creado con éxtio");
+                confirmacion.setText("Usuario registrado");
+                errorMessage.setText("");
                 }
 
             }
@@ -138,14 +162,30 @@ public class RegisterController implements Initializable {
 
     public void switchAdminServices(ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("ServicesAdmin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ServicesAdmin.fxml"));
+            root = loader.load();
+
+            ServicesAdminController controller = loader.getController();
+            // Pasa los datos al controlador de ServicesVigilante
+            //controller.setAdminDetails(userRegister.getText(), Integer.parseInt(idRegister.getText()));
+
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } catch (NumberFormatException e) {
+            mostrarAlerta("Error", "ID de Admin no válido.");
         }
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    }
+
+    private void mostrarAlerta(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 
