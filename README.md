@@ -31,29 +31,30 @@ CommunityApp es una aplicación que permite optimizar los procesos de comunicaci
 
 
 
-### Diagramas de secuencia
+### Diagramas de secuencia (Uno por cada diagrama de caso de uso detallado)
+1. 
 ![image](https://github.com/user-attachments/assets/5f067fba-4c63-40d1-9f6b-8765962ba900)
-
+2. 
 ![image](https://github.com/user-attachments/assets/86979996-8260-4501-9b5d-7e6bbb2b8f2c)
-
+3.
 ![image](https://github.com/user-attachments/assets/f8fbfb86-45a9-4350-8433-ec7d6570a263)
-
+4.
 ![image](https://github.com/user-attachments/assets/9e33ad83-89e7-4480-b6cf-9d8f1a4ef929)
-
+5. 
 ![image](https://github.com/user-attachments/assets/c451f542-71ee-4228-9a7e-2b06555e54ff)
-
+6.
 ![image](https://github.com/user-attachments/assets/85bbcb60-b45c-4296-80e7-05f2371671f6)
-
+7.
 ![image](https://github.com/user-attachments/assets/d592cfa6-c7ae-452d-b621-ab9212b28e31)
-
+8.
 ![image](https://github.com/user-attachments/assets/5e34545b-73f8-41e4-94f3-2600f4cf4aaa)
-
+9.
 ![image](https://github.com/user-attachments/assets/926f0106-adff-46f1-98e4-0d5ad019574c)
-
+10.
 ![image](https://github.com/user-attachments/assets/ea7233c8-9105-4f94-b5e3-346b0b07af96)
-
+11.
 ![image](https://github.com/user-attachments/assets/d737a275-6391-418b-9544-5471a7751d54)
-
+12.
 ![image](https://github.com/user-attachments/assets/342cac79-2974-4b4a-ab24-df74a976cc80)
 
 
