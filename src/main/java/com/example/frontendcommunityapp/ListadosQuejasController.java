@@ -1,20 +1,102 @@
 package com.example.frontendcommunityapp;
 
-import com.example.frontendcommunityapp.Model.Services.Queja;
+import com.example.frontendcommunityapp.Model.Services.RegistroMascotas;
+import com.example.frontendcommunityapp.Controller.DbConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.SelectionModel;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ListadosQuejasController {
+    private static final Logger logger = Logger.getLogger(ListadosQuejasController.class.getName());
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @FXML
-    private ListView<String> listaQuejasView;
+    private ListView<String> listViewMascotas;
+
+    @FXML
+    private TextArea textAreaMascotasPerdidas;
+
+    @FXML
+    private TextArea textAreaDetallesMascota; // Para mostrar detalles de la mascota seleccionada
+
+    @FXML
+    public void initialize() {
+        cargarMascotas();
+        cargarMascotasPerdidas();
+    }
+
+    private void cargarMascotas() {
+        DbConnection connection = new DbConnection();
+        String query = "SELECT asunto, estado FROM quejasypeticiones";
+        try {
+            ResultSet resultSet = connection.getQueryTable(query);
+            while (resultSet != null && resultSet.next()) {
+                String asunto = resultSet.getString("asunto");
+                String estado = resultSet.getString("estado");
+                listViewMascotas.getItems().add(asunto + " - " + estado);
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error al cargar las mascotas.", e);
+        }
+    }
+
+    private void cargarMascotasPerdidas() {
+        DbConnection connection = new DbConnection();
+        String query = "SELECT asunto, estado FROM quejasypeticiones WHERE estado = 'A'";
+        try {
+            ResultSet resultSet = connection.getQueryTable(query);
+            StringBuilder mascotasPerdidas = new StringBuilder();
+            while (resultSet != null && resultSet.next()) {
+                String asunto = resultSet.getString("asunto");
+                String estado = resultSet.getString("estado");
+                mascotasPerdidas.append(asunto).append(" - ").append(estado).append("\n");
+            }
+            textAreaMascotasPerdidas.setText(mascotasPerdidas.toString());
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error al cargar las novedades de vigilantes.", e);
+        }
+    }
+
+    @FXML
+    private void mostrarDetallesMascota(MouseEvent event) {
+        String selectedItem = listViewMascotas.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            String nombre = selectedItem.split(" - ")[0]; // Obtener el nombre de la mascota
+            mostrarDetalles(nombre);
+        }
+    }
+
+    private void mostrarDetalles(String nombreMascota) {
+        DbConnection connection = new DbConnection();
+        String query = "SELECT * FROM quejasypeticiones WHERE asunto = '" + nombreMascota + "'";
+        try {
+            ResultSet resultSet = connection.getQueryTable(query);
+            if (resultSet != null && resultSet.next()) {
+                String detalles = "Nombre: " + resultSet.getString("asunto") + "\n" +
+                        "Raza: " + resultSet.getString("peticion") + "\n" +
+                        "ID Usuario: " + resultSet.getString("id_Usuario") + "\n" +
+                        "Casa/Apartamento: " + resultSet.getString("estado");
+                textAreaDetallesMascota.setText(detalles);
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error al cargar los detalles de las novedades.", e);
+        }
+    }
 
     @FXML
     private void handleBackButtonAction() {
@@ -24,7 +106,7 @@ public class ListadosQuejasController {
             Parent root = loader.load();
 
             // Obtener el escenario actual
-            Stage stage = (Stage) listaQuejasView.getScene().getWindow();
+            Stage stage = (Stage) listViewMascotas.getScene().getWindow();
 
             // Cambiar la escena
             Scene scene = new Scene(root);
@@ -34,12 +116,6 @@ public class ListadosQuejasController {
             e.printStackTrace();
         }
     }
-
-    public void mostrarListaQuejas(List<Queja> listaQuejas) {
-        for (Queja queja : listaQuejas) {
-            String detalle = "Fecha: " + queja.getFecha() + ", Asunto: " + queja.getAsunto() +
-                    ", Descripción: " + queja.getDescripcion();
-            listaQuejasView.getItems().add(detalle);
-        }
-    }
 }
+
+

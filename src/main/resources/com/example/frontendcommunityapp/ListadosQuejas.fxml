@@ -2,11 +2,18 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.ListadosQuejasController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.frontendcommunityapp.ListadosQuejasController">
    <children>
-      <ListView fx:id="listaQuejasView" layoutX="7.0" layoutY="70.0" prefHeight="400.0" prefWidth="600.0" />
+      <Label text="Lista de Mascotas Registradas" layoutX="14.0" layoutY="14.0" />
+      <ListView fx:id="listViewMascotas" layoutX="14.0" layoutY="40.0" prefHeight="200.0" prefWidth="300.0" onMouseClicked="#mostrarDetallesMascota"/>
+
+      <Label text="Mascotas Perdidas" layoutX="350.0" layoutY="14.0" />
+      <TextArea fx:id="textAreaMascotasPerdidas" layoutX="350.0" layoutY="40.0" prefHeight="200.0" prefWidth="300.0" editable="false" />
+
+      <Label text="Detalles de la Mascota" layoutX="14.0" layoutY="260.0" />
+      <TextArea fx:id="textAreaDetallesMascota" layoutX="14.0" layoutY="280.0" prefHeight="100.0" prefWidth="636.0" editable="false" />
       <Button fx:id="backButton" layoutX="14.0" layoutY="470.0" onAction="#handleBackButtonAction" text="Regresar" />
-      <Label layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="98.0" text="Listado Quejas" />
    </children>
 </AnchorPane>

@@ -211,8 +211,7 @@ public class ServicesAdminController {
             root = loader.load();
 
             ListadosQuejasController controller = loader.getController();
-            List<Queja> listaQuejas = Queja.obtenerTodasLasQuejas();
-            controller.mostrarListaQuejas(listaQuejas);
+
 
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
