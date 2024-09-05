@@ -14,6 +14,7 @@
                 <TableColumn fx:id="colFecha" text="Fecha" prefWidth="100.0"/>
                 <TableColumn fx:id="colHorario" text="Horario" prefWidth="100.0"/>
                 <TableColumn fx:id="colContacto" text="Contacto" prefWidth="100.0"/>
+                <TableColumn fx:id="colIdArea" text="Area Comun" prefWidth="100.0"/>
             </columns>
         </TableView>
 

@@ -13,7 +13,7 @@ import java.sql.*;
 
 public class FormularioReservaController {
     @FXML
-    private TextField nombreField;
+    private TextField nombreFieldReserva;
     @FXML
     private TextField casaField;
     @FXML
@@ -33,7 +33,7 @@ public class FormularioReservaController {
 
     @FXML
     private void reservarArea() {
-        String nombre = nombreField.getText();
+        String nombre = nombreFieldReserva.getText();
         String casa = casaField.getText();
         String fecha = fechaField.getValue() != null ? fechaField.getValue().toString() : null;
         String horario = horarioField.getText();

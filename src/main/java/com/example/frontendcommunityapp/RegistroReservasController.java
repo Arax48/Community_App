@@ -27,6 +27,8 @@ public class RegistroReservasController {
     private TableColumn<Reserva, String> colHorario;
     @FXML
     private TableColumn<Reserva, String> colContacto;
+    @FXML
+    private TableColumn<Reserva, String> colIdArea;
 
     private ObservableList<Reserva> listaReservas = FXCollections.observableArrayList();
 
@@ -36,13 +38,13 @@ public class RegistroReservasController {
         colFecha.setCellValueFactory(cellData -> cellData.getValue().fechaProperty());
         colHorario.setCellValueFactory(cellData -> cellData.getValue().horarioProperty());
         colContacto.setCellValueFactory(cellData -> cellData.getValue().contactoProperty());
-
+        colIdArea.setCellValueFactory(cellData -> cellData.getValue().idAreaProperty());
         cargarReservas();
     }
 
     private void cargarReservas() {
-        String query = "SELECT nombre, casa, fecha, horario, contacto FROM reservas";
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/communityappdb", "silvana", "");
+        String query = "SELECT nombre, casa, fecha, horario, contacto, areas_comunes.nom_area as id_area  FROM reservas INNER JOIN areas_comunes ON reservas.id_area = areas_comunes.ID_AREA ORDER BY reservas.id_reservas";
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/community", "root", "_3GTh=FB<s{7l6B");
              PreparedStatement pstmt = conn.prepareStatement(query);
              ResultSet rs = pstmt.executeQuery()) {
 
@@ -52,7 +54,8 @@ public class RegistroReservasController {
                 String fecha = rs.getString("fecha");
                 String horario = rs.getString("horario");
                 String contacto = rs.getString("contacto");
-                listaReservas.add(new Reserva(nombre, casa, fecha, horario, contacto));
+                String id_area = rs.getString("id_area");
+                listaReservas.add(new Reserva(nombre, casa, fecha, horario, contacto, id_area));
             }
             tablaReservas.setItems(listaReservas);
         } catch (SQLException e) {
