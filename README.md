@@ -27,7 +27,8 @@ CommunityApp es una aplicación que permite optimizar los procesos de comunicaci
 ### Diagramas de casos de uso detallados
 ![image](https://github.com/user-attachments/assets/ae41f5c4-c7e2-44c5-959a-dc0e20e8ec40)
 ![image](https://github.com/user-attachments/assets/614acbba-128e-4447-875b-885471fec446)
-![image](https://github.com/user-attachments/assets/abf8fb0e-7b80-46f3-903d-11f7797e5aa5)
+![image](https://github.com/user-attachments/assets/edf2681f-4b86-458b-8b14-db71b011e55b)
+
 
 
 ### Diagramas de secuencia
