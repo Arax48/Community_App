@@ -14,10 +14,16 @@ CommunityApp es una aplicación que permite optimizar los procesos de comunicaci
 9. Verificación de reservas, pagos, visitantes, quejas, novedades.
 
 ## Diagramas de la App
-Diagrama de clases
+### Diagrama de clases
 ![image](https://github.com/user-attachments/assets/d7747804-d5d2-403e-b838-9bfa8e08e26c)
 
-Diagramas de casos de uso
+### Diagramas de casos de uso
+
+
+### Diagramas de casos de uso detallados
+
+### Diagramas de secuencia
+
 
 
 ## Flujo de uso de la App
