@@ -234,8 +234,7 @@ public class ServicesAdminController {
             Parent root = loader.load();
 
             ListadosVisitantesController controller = loader.getController();
-            List<Visitante> listaVisitantes = Visitante.obtenerTodosLosVisitantes();
-            controller.mostrarListaVisitantes(listaVisitantes);
+
 
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
