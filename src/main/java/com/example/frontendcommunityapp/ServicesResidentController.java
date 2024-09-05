@@ -1,6 +1,7 @@
 package com.example.frontendcommunityapp;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -48,4 +49,24 @@ public class ServicesResidentController {
             throw new RuntimeException(e);
         }
     }
+
+    @FXML
+    private void switchToListadosAnunciosPage(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ListadosAnuncios.fxml"));
+            root = loader.load();
+
+            ListadosAnunciosController controller = loader.getController();
+
+
+
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
