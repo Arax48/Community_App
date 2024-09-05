@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontendcommunityapp.ServicesAdminController">
 
@@ -16,7 +17,7 @@
                         <String fx:value="shadow" />
                     </styleClass>
                     <children>
-                        <!-- Botón 1: Mascotas -->
+                        <!-- Botones anteriores -->
                         <AnchorPane layoutX="291.0" layoutY="14.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
@@ -27,9 +28,7 @@
                                 <Button fx:id="buttonMascotasAdmin" layoutX="45.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchToMascotasAdmin" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Mascotas" />
                             </children>
                         </AnchorPane>
-
-                        <!-- Botón 2: Anuncios -->
-                        <AnchorPane layoutX="603.0" layoutY="14.0" prefHeight="213.0" prefWidth="210.0">
+                        <AnchorPane layoutX="524.0" layoutY="14.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -39,9 +38,7 @@
                                 <Button fx:id="buttonAnuncios" layoutX="33.0" layoutY="165.0" mnemonicParsing="false" onAction="#switchAnunciosPage" prefHeight="48.0" prefWidth="145.0" styleClass="nav-btn" stylesheets="@Style.css" text="Anuncios" />
                             </children>
                         </AnchorPane>
-
-                        <!-- Botón 3: Registros -->
-                        <AnchorPane layoutX="163.0" layoutY="254.0" prefHeight="213.0" prefWidth="210.0">
+                        <AnchorPane layoutX="14.0" layoutY="256.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -51,20 +48,16 @@
                                 <Button fx:id="buttonRegisterUser" layoutX="45.0" layoutY="151.0" mnemonicParsing="false" onAction="#switchRegisterPage" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Registros" />
                             </children>
                         </AnchorPane>
-
-                        <!-- Botón 4: Reservas Comunes -->
-                        <AnchorPane layoutX="462.0" layoutY="246.0" prefHeight="213.0" prefWidth="210.0">
+                        <AnchorPane layoutX="291.0" layoutY="247.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="31.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@images/Location2.png" />
                                     </image>
                                 </ImageView>
-                                <Button layoutX="45.0" layoutY="162.0" mnemonicParsing="false" onAction="#switchToReservasComunes" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Reservas Comunes" />
+                                <Button layoutX="45.0" layoutY="162.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="121.0" styleClass="nav-btn" stylesheets="@Style.css" text="Áreas Comunes" />
                             </children>
                         </AnchorPane>
-
-                        <!-- Botón 5: Pagos -->
                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="213.0" prefWidth="210.0">
                             <children>
                                 <ImageView fitHeight="150.0" fitWidth="145.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -76,8 +69,55 @@
                             </children>
                         </AnchorPane>
 
-                        <!-- Botón Atras -->
-                        <Button fx:id="buttonAtrasAdmin" layoutX="33.0" layoutY="421.0" mnemonicParsing="false" onAction="#switchToAdminDashboard" prefHeight="30.0" prefWidth="61.0" styleClass="nav-btn" stylesheets="@Style.css" text="Atras" />
+                        <!-- Nuevos botones de Listados -->
+                        <AnchorPane layoutX="14.0" layoutY="480.0" prefHeight="213.0" prefWidth="420.0">
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/Dollar.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="buttonListados" layoutX="220.0" layoutY="0.0" mnemonicParsing="false" onAction="#switchToListadosPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Mascotas" />
+                                <Button fx:id="buttonListadosN" layoutX="220.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToListadosNovedadesPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Novedad" />
+                            </children>
+                        </AnchorPane>
+
+                        <AnchorPane layoutX="14.0" layoutY="705.0" prefHeight="213.0" prefWidth="420.0">
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/Dollar.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="buttonListadosAnuncios" layoutX="220.0" layoutY="0.0" mnemonicParsing="false" onAction="#switchToListadosAnunciosPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Anuncios" />
+                            </children>
+                        </AnchorPane>
+
+                        <!-- Etiquetas de bienvenida y salida -->
+                        <Label layoutX="510.0" layoutY="288.0" prefHeight="30.0" prefWidth="163.0" text="Bienvenido, Admin:">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="bienvenidaAdmin" layoutX="680.0" layoutY="288.0" prefHeight="30.0" prefWidth="85.0" text="Admin">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="537.0" layoutY="333.0" prefHeight="30.0" prefWidth="93.0" text="ID Admin:">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="idAdmin" layoutX="637.0" layoutY="333.0" prefHeight="30.0" prefWidth="85.0" text="ID">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="salirAdmin" layoutX="603.0" layoutY="409.0" mnemonicParsing="false" onAction="#switchLogin" prefHeight="39.0" prefWidth="85.0" styleClass="nav-btn" stylesheets="@Style.css" text="Salir" />
+                        <Button fx:id="buttonListadosVisitantes" layoutX="452.0" layoutY="571.0" mnemonicParsing="false" onAction="#switchToListadosVisitantesPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Visitantes" />
+                        <Button fx:id="buttonListadosQuejas" layoutX="469.0" layoutY="695.0" mnemonicParsing="false" onAction="#switchToListadosQuejasPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados Quejas" />
+                        <Button fx:id="buttonListadosPago" layoutX="689.0" layoutY="695.0" mnemonicParsing="false" onAction="#switchToListadosPagoPage" prefHeight="48.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@Style.css" text="Listados pagos" />
                     </children>
                 </AnchorPane>
             </children>
