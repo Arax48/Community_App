@@ -3,8 +3,21 @@
 CommunityApp es una aplicación que permite optimizar los procesos de comunicación en zonas residenciales como apartamentos, conjuntos y demás entidades que se puedan considerar una comunidad.
 
 ## Características
+1. Reportes de anuncios, quejas y novedades
+2. Consignación de Pagos por concepto
+3. Registro de Mascotas Perdidas
+4. Registro de diferentes tipos de usuario
+5. Registro de visitantes
+6. Marcada de entrada y salida de visitantes
+7. Verificación de registro
+8. Reserva de areas comunes
+9. Verificación de reservas, pagos, visitantes, quejas, novedades.
 
-## Diagramas
+## Diagramas de la App
+Diagrama de clases
+![image](https://github.com/user-attachments/assets/d7747804-d5d2-403e-b838-9bfa8e08e26c)
+
+Diagramas de casos de uso
 
 
 ## Flujo de uso de la App
